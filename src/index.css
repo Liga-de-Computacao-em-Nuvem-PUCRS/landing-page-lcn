@@ -1,0 +1,216 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+  Liga de Computação em Nuvem — PUCRS
+  Direção visual: "Céu editorial acadêmico" — azul bebê + branco, texto navy.
+  Tema claro fixo (o "céu" é claro).
+*/
+
+:root {
+  --radius: 0.9rem;
+
+  /* Paleta base do céu */
+  --paper: #ffffff;
+  --sky-tint: #eff7fd;
+  --baby: #aed8f2;
+  --azure: #2e8bd4;
+  --azure-deep: #1c6aac;
+  --ink: #0b2a45;
+  --mint: #58d6ae;
+  --amber: #f0b429;
+  --magenta: #d6409f;
+
+  /* Tokens semânticos (shadcn) */
+  --background: #ffffff;
+  --foreground: #0b2a45;
+  --card: #ffffff;
+  --card-foreground: #0b2a45;
+  --popover: #ffffff;
+  --popover-foreground: #0b2a45;
+  --primary: #2e8bd4;
+  --primary-foreground: #ffffff;
+  --secondary: #eff7fd;
+  --secondary-foreground: #0b2a45;
+  --muted: #f2f7fb;
+  --muted-foreground: #4a6885;
+  --accent: #e4f2fc;
+  --accent-foreground: #0b2a45;
+  --destructive: #dc2626;
+  --border: #dbe8f3;
+  --input: #dbe8f3;
+  --ring: #2e8bd4;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --tracking-tight: -0.011em;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Cores de marca acessíveis via utilitários (bg-sky-tint, text-azure, etc.) */
+  --color-paper: var(--paper);
+  --color-sky-tint: var(--sky-tint);
+  --color-baby: var(--baby);
+  --color-azure: var(--azure);
+  --color-azure-deep: var(--azure-deep);
+  --color-ink: var(--ink);
+  --color-mint: var(--mint);
+  --color-amber: var(--amber);
+  --color-magenta: var(--magenta);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    letter-spacing: var(--tracking-tight);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--azure) 22%, transparent);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  /* Eyebrow monoespaçado recorrente */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--azure-deep);
+  }
+
+  /* Título display (Bricolage Grotesque, bold) */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    color: var(--ink);
+  }
+
+  /* Palavra em destaque com gradiente azure→baby (títulos estilo Liga) */
+  .accent-word {
+    background: linear-gradient(100deg, var(--azure-deep) 0%, var(--azure) 45%, #6cc0ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Glow suave reutilizável */
+  .sky-glow {
+    box-shadow: 0 24px 60px -30px rgba(46, 139, 212, 0.55);
+  }
+
+  /* Linha do horizonte — divisor recorrente entre seções */
+  .horizon {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--azure) 42%, transparent) 25%,
+      color-mix(in srgb, var(--azure) 42%, transparent) 75%,
+      transparent
+    );
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x var(--marquee-duration, 32s) linear infinite;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+@keyframes sky-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
