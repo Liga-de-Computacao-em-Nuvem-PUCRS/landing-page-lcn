@@ -7,7 +7,7 @@ const JOURNEY = [
   {
     step: '01',
     title: 'Ferramentas',
-    text: 'Console AWS, Docker e Terraform. O terreno onde tudo é construído.',
+    text: 'Console AWS, Docker e Terraform. As ferramentas que usamos para construir nossos projetos.',
     width: '38%',
     accent: 'var(--azure)',
   },

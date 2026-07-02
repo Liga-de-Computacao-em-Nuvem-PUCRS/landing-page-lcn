@@ -21,6 +21,22 @@ function kindStyle(kind: string): { background: string; color: string } {
   return { background: '#eef0f4', color: '#3f5a76' };
 }
 
+/** Estilo neutro (cinza) aplicado a encontros já realizados. */
+const PAST = { hex: '#9aa4b2', soft: '#eef0f4', tag: { background: '#eef0f4', color: '#8a94a3' } };
+
+/** Ano do programa-piloto — os encontros usam data no formato DD/MM. */
+const PROGRAM_YEAR = 2026;
+
+/** Verdadeiro quando a data do encontro (DD/MM) já passou. */
+function isPast(date: string): boolean {
+  const [day, month] = date.split('/').map(Number);
+  if (!day || !month) return false;
+  const meeting = new Date(PROGRAM_YEAR, month - 1, day);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return meeting < today;
+}
+
 export function CycleTimeline({ cycle }: { cycle: Cycle }) {
   const a = ACCENT[cycle.accent];
 
@@ -90,42 +106,62 @@ export function CycleTimeline({ cycle }: { cycle: Cycle }) {
             }}
             aria-hidden="true"
           />
-          {cycle.meetings.map((m) => (
-            <li key={m.n} className="relative flex items-start gap-4 py-3.5 first:pt-0 last:pb-0">
-              <span
-                className="absolute -left-[1.55rem] top-4 flex size-4 items-center justify-center rounded-full ring-4 ring-background md:-left-[2.85rem]"
-                style={{ background: a.hex }}
-                aria-hidden="true"
-              />
-              <span
-                className="mt-0.5 shrink-0 rounded-lg px-2.5 py-1 font-mono text-sm font-semibold"
-                style={{ background: a.soft, color: a.hex }}
+          {cycle.meetings.map((m) => {
+            const past = isPast(m.date);
+            return (
+              <li
+                key={m.n}
+                className={cn(
+                  'relative flex items-start gap-4 py-3.5 first:pt-0 last:pb-0 transition-opacity',
+                  past && 'opacity-60'
+                )}
               >
-                {m.date}
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="text-[0.98rem] leading-snug text-ink">{m.topic}</p>
-                <span className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
-                  {m.kind.split('/').map((part) => {
-                    const t = part.trim();
-                    const s = kindStyle(t);
-                    return (
-                      <span
-                        key={t}
-                        className="rounded px-1.5 py-0.5 font-semibold"
-                        style={{ background: s.background, color: s.color }}
-                      >
-                        {t}
-                      </span>
-                    );
-                  })}
-                  <span className="text-muted-foreground/70">
-                    Encontro {m.n}
-                  </span>
+                <span
+                  className="absolute -left-[1.55rem] top-4 flex size-4 items-center justify-center rounded-full ring-4 ring-background md:-left-[2.85rem]"
+                  style={{ background: past ? PAST.hex : a.hex }}
+                  aria-hidden="true"
+                />
+                <span
+                  className="mt-0.5 shrink-0 rounded-lg px-2.5 py-1 font-mono text-sm font-semibold"
+                  style={
+                    past
+                      ? { background: PAST.soft, color: PAST.tag.color }
+                      : { background: a.soft, color: a.hex }
+                  }
+                >
+                  {m.date}
                 </span>
-              </div>
-            </li>
-          ))}
+                <div className="min-w-0 flex-1">
+                  <p
+                    className={cn(
+                      'text-[0.98rem] leading-snug',
+                      past ? 'text-muted-foreground line-through decoration-muted-foreground/40' : 'text-ink'
+                    )}
+                  >
+                    {m.topic}
+                  </p>
+                  <span className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted-foreground">
+                    {m.kind.split('/').map((part) => {
+                      const t = part.trim();
+                      const s = past ? PAST.tag : kindStyle(t);
+                      return (
+                        <span
+                          key={t}
+                          className="rounded px-1.5 py-0.5 font-semibold"
+                          style={{ background: s.background, color: s.color }}
+                        >
+                          {t}
+                        </span>
+                      );
+                    })}
+                    <span className="text-muted-foreground/70">
+                      {past ? 'Concluído' : `Encontro ${m.n}`}
+                    </span>
+                  </span>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </section>
     </Reveal>

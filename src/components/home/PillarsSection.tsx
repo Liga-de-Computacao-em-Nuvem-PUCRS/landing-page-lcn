@@ -11,7 +11,7 @@ interface Pillar {
 const PILLARS: Pillar[] = [
   {
     title: 'Ensino',
-    text: 'Trilhas de estudo e grupos de certificação, do Cloud Practitioner ao Solutions Architect.',
+    text: 'Trilhas personalizadas de estudo e grupos de certificação.',
     icon: 'ladder',
   },
   {
@@ -31,7 +31,7 @@ const PILLARS: Pillar[] = [
   },
   {
     title: 'Comunidade',
-    text: 'Mentoria entre pares, divulgação e integração com o AWS Cloud Clubs.',
+    text: 'Mentorias, divulgação e integração com o ecossistema AWS, TecnoPuc e PUCRS.',
     icon: 'teams',
   },
 ];
@@ -43,7 +43,7 @@ export function PillarsSection() {
         <Reveal>
           <span className="eyebrow">Eixos de atuação</span>
           <h2 className="display mt-5 text-4xl sm:text-5xl">
-            Cinco frentes, <span className="accent-word">um só objetivo</span>.
+            Cinco frentes <span className="accent-word">focados em cloud:</span>.
           </h2>
         </Reveal>
 

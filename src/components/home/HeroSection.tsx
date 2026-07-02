@@ -109,7 +109,7 @@ export function HeroSection() {
           variants={item}
           className="display mx-auto mt-7 max-w-3xl text-2xl font-medium leading-tight text-ink/80 md:text-[2rem]"
         >
-          Aprenda cloud na prática, conquiste sua certificação e construa
+          Aprendendo cloud na prática, conquistando sua certificação e construindo
           soluções reais.
         </motion.p>
 

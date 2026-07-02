@@ -23,16 +23,14 @@ export function AwsProgramSection() {
           <div>
             <span className="eyebrow text-baby">Programa parceiro</span>
             <h2 className="display mt-5 text-4xl leading-[1.02] text-white sm:text-5xl md:text-[3.4rem]">
-              A liga participa do programa{' '}
+              A liga faz parte do programa{' '}
               <span className="bg-[linear-gradient(100deg,#7cd0ff_0%,#aed8f2_60%,#58d6ae_100%)] bg-clip-text text-transparent">
                 AWS Student Builder Group
               </span>
               .
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-              Nova denominação do AWS Cloud Clubs. Descrevemos essa relação
-              apenas de forma factual — a marca AWS pertence à Amazon Web
-              Services, sem implicar afiliação, patrocínio ou endosso.
+              A liga possui certificados e especialistas em cloud computing, com o suporte do programa AWS Student Builder Group.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -52,11 +50,11 @@ export function AwsProgramSection() {
                 className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:text-white"
               >
                 <a
-                  href="https://builder.aws.com/community/cloud-clubs"
+                  href="https://skillbuilder.aws/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  AWS Builder Center
+                  AWS Skill Builder
                 </a>
               </Button>
             </div>
