@@ -13,32 +13,32 @@ export const CYCLES: Cycle[] = [
     period: 'Agosto · 06/08 a 27/08',
     accent: 'azure',
     focus:
-      'Abertura da liga, ecossistema do AWS Student Builder Group e fundamentos de AWS Console, Docker e Terraform.',
+      'Abertura da liga, ecossistema do AWS Student Builder Group e fundamentos de AWS e Computação em Nuvem.',
     format: 'Workshop (teoria + hands-on guiado)',
     meetings: [
       {
         n: 1,
         date: '06/08',
         topic:
-          'Abertura da liga + ferramentas do AWS Group (Skill Builder, Credly, Meetup) e criação de contas',
+          'Abertura da liga + ferramentas do AWS Student Builder Group e criação de contas',
         kind: 'Comunidade / Ensino',
       },
       {
         n: 2,
         date: '13/08',
-        topic: 'AWS Console — IAM, billing, free-tier e regiões/AZs',
+        topic: 'Docker e Terraform: containers, imagens e IaC',
         kind: 'Hands-on',
       },
       {
         n: 3,
         date: '20/08',
-        topic: 'Docker — containers, imagens e hands-on local',
-        kind: 'Hands-on',
+        topic: 'Talk: Problemas de Big Techs e soluções no ecossistema AWS',
+        kind: 'Extensão',
       },
       {
         n: 4,
         date: '27/08',
-        topic: 'Terraform (IaC) — primeiro provisionamento na AWS',
+        topic: 'Console AWS: Principais serviços e possibildiades',
         kind: 'Hands-on',
       },
     ],
@@ -69,13 +69,13 @@ export const CYCLES: Cycle[] = [
       {
         n: 7,
         date: '17/09',
-        topic: 'Domínios 3 e 4 — Tecnologia/Serviços e Faturamento/Preços',
+        topic: 'Domínio 3 — Tecnologia/Serviços',
         kind: 'Ensino',
       },
       {
         n: 8,
         date: '24/09',
-        topic: 'Simulado final e plano de agendamento do exame',
+        topic: 'Domínio 4 - Faturamento/Preços',
         kind: 'Ensino',
       },
     ],
@@ -83,18 +83,18 @@ export const CYCLES: Cycle[] = [
   {
     key: 'c3',
     index: 3,
-    title: 'Case com Cliente A',
-    highlight: 'Cliente A',
+    title: 'Case com Cliente 1',
+    highlight: 'Cliente 1',
     period: 'Outubro · 01/10 a 29/10',
     accent: 'amber',
     focus:
-      'Squad em projeto real: apresentação do case, arquitetura, script Terraform e apresentação final.',
-    format: 'Squad em case de cliente externo',
+      'Squad em projeto real: apresentação do case, arquitetura, script e apresentação final.',
+    format: 'Stakeholder e Case Real',
     meetings: [
       {
         n: 9,
         date: '01/10',
-        topic: 'Cliente A — apresentação do case (contexto, requisitos, restrições)',
+        topic: 'Apresentação do case (contexto, requisitos, restrições)',
         kind: 'Extensão',
       },
       {
@@ -126,18 +126,18 @@ export const CYCLES: Cycle[] = [
   {
     key: 'c4',
     index: 4,
-    title: 'Case com Cliente B',
-    highlight: 'Cliente B',
+    title: 'Case com Cliente 2',
+    highlight: 'Cliente 2',
     period: 'Novembro a 03/12',
     accent: 'magenta',
     focus:
       'Consolidação do ciclo de entrega cloud, com mais autonomia das squads em um segundo cliente.',
-    format: 'Squad em case de cliente externo',
+    format: 'Stakeholder e Case Real',
     meetings: [
       {
         n: 14,
         date: '05/11',
-        topic: 'Cliente B — apresentação do case',
+        topic: 'Apresentação do case',
         kind: 'Extensão',
       },
       {
@@ -162,7 +162,7 @@ export const CYCLES: Cycle[] = [
         n: 18,
         date: '03/12',
         topic:
-          'Apresentação final ao Cliente B (fechamento — véspera das provas G2)',
+          'Apresentação final ao Cliente B + encerramento',
         kind: 'Extensão / Projeto',
       },
     ],

@@ -9,7 +9,7 @@ export default function CalendarioPage() {
       <PageHero
         eyebrow="Programa-piloto 2026/2"
         title={<>Calendário em 4 ciclos</>}
-        description="Encontros toda quinta-feira, de 06/08 a 03/12 — 18 no total. A estrutura é progressiva: das ferramentas à certificação e, então, a cases reais de clientes externos."
+        description="Encontros toda quinta-feira, previsto no Calendário 2026/02. "
       >
         <div className="flex flex-wrap gap-2">
           {[

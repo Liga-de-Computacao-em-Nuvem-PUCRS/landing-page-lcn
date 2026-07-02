@@ -20,7 +20,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'AWS Skill Builder',
     category: 'Plataforma do AWS Group',
     description:
-      'Trilhas de aprendizado oficiais da AWS, laboratórios e cursos de preparação para as certificações — base dos estudos dos membros.',
+      'Trilhas de aprendizado oficiais da AWS, laboratórios e cursos de preparação para as certificações. Base dos estudos dos membros.',
     href: 'https://skillbuilder.aws/',
     hrefLabel: 'skillbuilder.aws',
     brand: 'aws',
@@ -29,7 +29,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'Credly',
     category: 'Plataforma do AWS Group',
     description:
-      'Emissão e verificação dos badges digitais. Cada certificação e conquista da liga vira uma credencial verificável no seu perfil.',
+      'Emissão e verificação dos badges digitais. Cada certificação e conquista da liga vira uma credencial verificável no seu perfil. O site oficial da AWS para certificações.',
     href: 'https://www.credly.com/',
     hrefLabel: 'credly.com',
     brand: 'credly',
@@ -38,7 +38,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'Meetup — AWS SBG PUCRS',
     category: 'Plataforma do AWS Group',
     description:
-      'Onde os encontros e eventos da liga são publicados. Confirme presença, acompanhe a agenda e conecte-se com a comunidade.',
+      'Onde os encontros e eventos da liga são publicados. Confirme presença, acompanhe a agenda e conecte-se com a comunidade. Grupo oficial da AWS Student Builder Group no Meetup.',
     href: 'https://www.meetup.com/aws-sbg-pucrs/',
     hrefLabel: 'meetup.com/aws-sbg-pucrs',
     brand: 'meetup',
@@ -47,7 +47,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'AWS Builder Center',
     category: 'Plataforma do AWS Group',
     description:
-      'O hub oficial da comunidade de builders da AWS — perfil, conteúdos e o programa Cloud Clubs / Student Builder Group ao qual a liga é vinculada.',
+      'O hub oficial da comunidade de builders da AWS — perfil, conteúdos e o programa AWS Student Builder Group ao qual a liga é vinculada.',
     href: 'https://builder.aws.com/',
     hrefLabel: 'builder.aws.com',
     brand: 'aws',
@@ -56,7 +56,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'AWS Management Console',
     category: 'Ferramenta técnica',
     description:
-      'A porta de entrada para a nuvem AWS: IAM, billing, free-tier e regiões/AZs. Trabalhada no hands-on do Ciclo 1.',
+      'O console oficial da AWS para gerenciar seus recursos na nuvem.',
     href: 'https://aws.amazon.com/console/',
     hrefLabel: 'aws.amazon.com/console',
     brand: 'aws',
@@ -65,7 +65,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'Docker',
     category: 'Ferramenta técnica',
     description:
-      'Containers, imagens e Dockerfile — fundamento para empacotar e rodar aplicações de forma portável na nuvem.',
+      'Containers, imagens e Dockerfiles. Fundamento para empacotar e rodar aplicações de forma portável na nuvem.',
     href: 'https://www.docker.com/',
     hrefLabel: 'docker.com',
     brand: 'docker',
@@ -74,7 +74,7 @@ export const RESOURCES: ResourceItem[] = [
     name: 'Terraform',
     category: 'Ferramenta técnica',
     description:
-      'Infraestrutura como Código (IaC): provisione recursos AWS de forma declarativa e reproduzível, do bucket ao ambiente completo.',
+      'Infraestrutura como Código (IaC): Gerencie recursos AWS de forma declarativa, do script ao ambiente completo.',
     href: 'https://developer.hashicorp.com/terraform',
     hrefLabel: 'terraform.io',
     brand: 'terraform',

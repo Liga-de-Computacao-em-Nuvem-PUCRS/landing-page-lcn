@@ -22,7 +22,7 @@ export default function RecursosPage() {
       <PageHero
         eyebrow="O que usamos"
         title={<>Recursos & plataformas</>}
-        description="As plataformas do ecossistema AWS Student Builder Group e as ferramentas técnicas que sustentam os encontros da liga — cada uma com o seu papel na jornada."
+        description="As plataformas do ecossistema AWS Student Builder Group e as ferramentas que auxiliam os encontros da liga. Importante para o aprendizado e desenvolvimento de projetos."
       />
 
       {GROUPS.map((group) => {

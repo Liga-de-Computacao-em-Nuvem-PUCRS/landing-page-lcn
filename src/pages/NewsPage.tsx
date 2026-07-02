@@ -69,10 +69,6 @@ export default function NewsPage() {
             ))}
           </div>
         )}
-
-        <p className="mx-auto mt-12 w-fit rounded-full border border-dashed border-border bg-muted/50 px-4 py-2 text-center text-xs text-muted-foreground">
-          Curadoria da liga · os links levam às fontes oficiais
-        </p>
       </div>
     </div>
   );

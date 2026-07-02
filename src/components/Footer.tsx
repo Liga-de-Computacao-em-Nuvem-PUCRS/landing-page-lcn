@@ -18,7 +18,7 @@ export function Footer() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             Comunidade estudantil de computação em nuvem da PUCRS, vinculada à
             Escola Politécnica. A liga participa do programa AWS Student Builder
-            Group — relação descrita apenas em caráter factual.
+            Group.
           </p>
         </div>
 

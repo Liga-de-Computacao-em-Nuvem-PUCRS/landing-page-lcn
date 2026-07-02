@@ -15,7 +15,7 @@ export default function GestaoPage() {
             A <span className="accent-word">gestão</span> da liga
           </>
         }
-        description="A diretoria e a supervisão que estruturam a Liga de Computação em Nuvem, eleitas conforme o Estatuto e a Ata de Fundação. Nomes e fotos serão publicados após a posse."
+        description="Nosso time que conduz a liga, promovendo o aprendizado e a capacitação em cloud computing."
       />
 
       {BOARD.map((group) => (
