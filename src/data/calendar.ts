@@ -38,7 +38,7 @@ export const CYCLES: Cycle[] = [
       {
         n: 4,
         date: '27/08',
-        topic: 'Console AWS: Principais serviços e possibildiades',
+        topic: 'Console AWS: Principais serviços e possibilidades',
         kind: 'Hands-on',
       },
     ],

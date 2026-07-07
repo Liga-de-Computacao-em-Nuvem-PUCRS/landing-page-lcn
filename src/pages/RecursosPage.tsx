@@ -7,7 +7,7 @@ const GROUPS: { title: string; category: ResourceItem['category']; note: string 
   {
     title: 'Ferramentas do AWS Student Builder Group',
     category: 'Plataforma do AWS Group',
-    note: 'O ecossistema apresentado no Ciclo 1 — onde você estuda, ganha badges e acompanha os eventos.',
+    note: 'O ecossistema apresentado no Ciclo 1: onde você estuda, ganha badges e acompanha os eventos.',
   },
   {
     title: 'Ferramentas técnicas',

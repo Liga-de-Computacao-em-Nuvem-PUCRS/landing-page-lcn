@@ -11,7 +11,7 @@ const PURPOSE = [
   },
   {
     label: 'Nossos Valores',
-    text: 'Aprendizado mão na massa, colaboração, inclusão, ética e excelência técnica — o que guia cada encontro e cada projeto.',
+    text: 'Aprendizado mão na massa, colaboração, inclusão, ética e excelência técnica, o que guia cada encontro e cada projeto.',
   },
 ];
 
