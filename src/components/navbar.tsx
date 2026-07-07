@@ -50,7 +50,7 @@ export function Navbar() {
               target="_blank"
               rel="noreferrer"
             >
-              Participar
+              Fique por dentro!
             </a>
           </Button>
         </div>
