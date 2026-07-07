@@ -37,6 +37,8 @@ export const BOARD: BoardGroup[] = [
         role: 'Pesquisa / Técnico (Cloud)',
         course: 'Engenharia de Software — PUCRS',
         initials: 'BM',
+        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-07%20at%2009.30.10.jpeg',
+        photoPosition: '50% 20%',
         bio: 'Responsável pela pesquisa e desenvolvimento de projetos em cloud computing. Atua como mentor e guia na resolução de problemas técnicos.',
       },
       {
@@ -44,6 +46,8 @@ export const BOARD: BoardGroup[] = [
         role: 'Comunicação / Marketing',
         course: 'Engenharia de Software — PUCRS',
         initials: 'CR',
+        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-02%20at%2015.44.28.jpeg',
+        photoPosition: '50% 70%',
         bio: 'Responsável pela comunicação e marketing da liga. Gerencia as redes sociais, cria conteúdo e promove os eventos e projetos.',
       },
       {
@@ -59,6 +63,8 @@ export const BOARD: BoardGroup[] = [
         role: 'Pesquisa / Técnico (Cloud)',
         course: 'Ciência da Computação — PUCRS',
         initials: 'PT',
+        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-02%20at%2012.03.19%20%281%29.jpeg',
+        photoPosition: '50% 70%',
         bio: 'Responsável pela pesquisa e desenvolvimento de projetos em cloud computing. Atua como mentor e guia na resolução de problemas técnicos.',
       },
     ],

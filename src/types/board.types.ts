@@ -9,6 +9,8 @@ export interface BoardMember {
   bio: string;
   /** caminho da foto em /public (opcional; usa placeholder se ausente) */
   photo?: string;
+  /** enquadramento da foto (CSS object-position, ex.: '50% 70%'); padrão centralizado */
+  photoPosition?: string;
   /** iniciais para o avatar-placeholder */
   initials: string;
 }

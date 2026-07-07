@@ -28,6 +28,7 @@ export function BoardCard({
             src={member.photo}
             alt={member.name}
             className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: member.photoPosition }}
             loading="lazy"
           />
         ) : (
