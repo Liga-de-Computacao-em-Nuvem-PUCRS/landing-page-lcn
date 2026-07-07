@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./.github/lcn-logo.png" alt="Liga de Computação em Nuvem — PUCRS" width="340" />
+<img src="./.github/lcn-logo.png" alt="Liga de Computação em Nuvem — PUCRS" width="340"/>
 
 # Landing Page · Liga de Computação em Nuvem — PUCRS
 
@@ -18,7 +18,7 @@ Site institucional da **Liga de Computação em Nuvem** da PUCRS (Escola Polité
 
 ## ✨ Sobre
 
-Landing page da comunidade, apresentando propósito, diretoria, calendário de encontros, catálogo de certificações, recursos de estudo e notícias do mundo cloud.
+Landing page da comunidade, apresentando propósito, diretoria, calendário de encontros, catálogo de certificações, recursos de estudo e notícias do mundo cloud!
 
 Identidade visual **"céu editorial"** — azul bebê + branco com texto navy, tipografia **Bricolage Grotesque + Inter + JetBrains Mono** e animações ricas (sempre respeitando `prefers-reduced-motion`).
 
@@ -64,14 +64,14 @@ public/
 
 Todo o conteúdo textual vive em `src/data/` como dados tipados — não é preciso mexer em componentes para atualizar o site:
 
-| Conteúdo | Arquivo |
-| --- | --- |
-| Diretoria (nomes, cargos, bios, fotos) | `src/data/board.ts` |
-| Recursos (plataformas/ferramentas) | `src/data/resources.ts` |
-| Calendário (ciclos e encontros) | `src/data/calendar.ts` |
+| Conteúdo                               | Arquivo                      |
+| -------------------------------------- | ---------------------------- |
+| Diretoria (nomes, cargos, bios, fotos) | `src/data/board.ts`          |
+| Recursos (plataformas/ferramentas)     | `src/data/resources.ts`      |
+| Calendário (ciclos e encontros)        | `src/data/calendar.ts`       |
 | Certificações (catálogo AWS/Azure/GCP) | `src/data/certifications.ts` |
-| Notícias (curadoria de links) | `src/data/news.ts` |
-| Redes sociais do rodapé | `src/data/social.ts` |
+| Notícias (curadoria de links)          | `src/data/news.ts`           |
+| Redes sociais do rodapé                | `src/data/social.ts`         |
 
 > Para adicionar a foto de um membro, coloque o arquivo em `public/gestao/` e defina `photo: '/gestao/nome.jpg'` no `board.ts`.
 
