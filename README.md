@@ -77,7 +77,7 @@ Todo o conteúdo textual vive em `src/data/` como dados tipados — não é prec
 | Notícias (curadoria de links)          | `src/data/news.ts`           |
 | Redes sociais do rodapé                | `src/data/social.ts`         |
 
-> Para adicionar a foto de um membro, coloque o arquivo em `public/gestao/` e defina `photo: '/gestao/nome.jpg'` no `board.ts`.
+> Para adicionar a foto de um membro, coloque o arquivo em `public/gestao/` e defina `photo: '/gestao/nome.jpg'` no `board.ts`. Use `photoPosition` (ex.: `'50% 30%'`) para ajustar o enquadramento da foto.
 
 ## 🌐 Comunidade
 
