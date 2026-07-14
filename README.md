@@ -18,7 +18,7 @@ Site institucional da **Liga de Computação em Nuvem** da PUCRS (Escola Polité
 
 ## ✨ Sobre
 
-Landing page da comunidade, apresentando propósito, diretoria, calendário de encontros, catálogo de certificações, recursos de estudo e notícias do mundo cloud!
+Landing page da comunidade, apresentando propósito, diretoria, calendário de encontros, catálogo de certificações, recursos de estudo e notícias do mundo cloud.
 
 Identidade visual **"céu editorial"** — azul bebê + branco com texto navy, tipografia **Bricolage Grotesque + Inter + JetBrains Mono** e animações ricas (sempre respeitando `prefers-reduced-motion`).
 
