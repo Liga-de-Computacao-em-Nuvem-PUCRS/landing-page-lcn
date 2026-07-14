@@ -44,7 +44,7 @@ Requer **Node.js 20+**. O dev server sobe em `http://localhost:5173`.
 
 ## ☁️ Deploy
 
-O site é publicado na **Vercel**, com rewrite de SPA configurado em `vercel.json`.
+O site é publicado na **Vercel**, com rewrite de SPA configurado em `vercel.json`. Cada push na branch `main` gera um deploy automático de produção.
 
 ## 📁 Estrutura
 
