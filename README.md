@@ -86,7 +86,7 @@ Sugestões e correções são bem-vindas — abra uma issue ou envie um pull req
 
 ## 🌐 Comunidade
 
-Participe pelo **[Meetup — AWS SBG PUCRS](https://www.meetup.com/aws-sbg-pucrs/)**.
+Participe dos encontros pelo **[Meetup — AWS SBG PUCRS](https://www.meetup.com/aws-sbg-pucrs/)**.
 
 <div align="center">
 <br />
