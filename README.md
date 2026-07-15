@@ -81,7 +81,7 @@ Todo o conteúdo textual vive em `src/data/` como dados tipados — não é prec
 
 ## 🤝 Contribuindo
 
-Sugestões e correções são bem-vindas — abra uma issue ou envie um pull request.
+Sugestões e correções são bem-vindas — abra uma issue ou envie um pull request. Antes de enviar, rode `npm run lint` e confira o build com `npm run build`.
 
 ## 🌐 Comunidade
 
