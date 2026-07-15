@@ -55,6 +55,7 @@ src/
 │                  #   Calendário, Certificações e Notícias
 ├── components/    # componentes por feature (home/, gestao/, ...) + ui/
 ├── data/          # ← fonte de conteúdo editável (dados tipados)
+├── types/         # tipos compartilhados (board, resources, ...)
 ├── lib/           # utilitários (cn, brandLogos, ...)
 └── index.css      # design tokens + classes de marca (.display, .accent-word, ...)
 
