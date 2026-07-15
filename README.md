@@ -79,6 +79,10 @@ Todo o conteúdo textual vive em `src/data/` como dados tipados — não é prec
 
 > Para adicionar a foto de um membro, coloque o arquivo em `public/gestao/` e defina `photo: '/gestao/nome.jpg'` no `board.ts`. Use `photoPosition` (ex.: `'50% 30%'`) para ajustar o enquadramento da foto.
 
+## 🤝 Contribuindo
+
+Sugestões e correções são bem-vindas — abra uma issue ou envie um pull request.
+
 ## 🌐 Comunidade
 
 Participe pelo **[Meetup — AWS SBG PUCRS](https://www.meetup.com/aws-sbg-pucrs/)**.
