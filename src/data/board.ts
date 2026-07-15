@@ -31,8 +31,8 @@ export const BOARD: BoardGroup[] = [
         course: 'Ciência da Computação — PUCRS',
         initials: 'MM',
         bio: 'Embaixador AWS Campus Builder da PUCRS, responsável pela divulgação e promoção da liga.',
-        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-07%20at%2016.13.11.jpeg',
-        photoPosition: '35% 30%',
+        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-14%20at%2017.17.21.jpeg',
+        photoPosition: '50% 50%',
       },
       {
         name: 'Cecília Ricalcati',
