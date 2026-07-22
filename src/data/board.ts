@@ -80,7 +80,7 @@ export const BOARD: BoardGroup[] = [
         role: 'Docente Supervisor(a)',
         course: 'Escola Politécnica — PUCRS',
         initials: 'MX',
-        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/Miguel-Xavier-3.webp',
+        photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-22%20at%2015.14.04.jpeg',
         bio: 'Docente voluntário(a) que supervisiona a liga e a representa perante a Universidade. Atua como mentor e guia na resolução de problemas técnicos.',
       },
     ],
