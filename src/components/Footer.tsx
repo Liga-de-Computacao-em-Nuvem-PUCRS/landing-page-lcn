@@ -1,10 +1,10 @@
-import { Github, Linkedin, Instagram, type LucideIcon } from 'lucide-react';
+import { Globe, Linkedin, Instagram, type LucideIcon } from 'lucide-react';
 import { SiMeetup } from 'react-icons/si';
 import { Logo } from '@/components/Logo';
 import { SOCIAL_LINKS } from '@/data/social';
 
 const LUCIDE: Record<string, LucideIcon> = {
-  github: Github,
+  site: Globe,
   linkedin: Linkedin,
   instagram: Instagram,
 };

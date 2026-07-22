@@ -1,16 +1,19 @@
 /**
- * Links do rodapé. GitHub / LinkedIn / Instagram são placeholders (#) —
- * troque pelas URLs reais quando os perfis existirem. Meetup já é real.
+ * Links do rodapé.
  */
 export interface SocialLink {
   label: string;
   href: string;
   /** identificador do ícone renderizado no Footer */
-  icon: 'github' | 'linkedin' | 'instagram' | 'meetup';
+  icon: 'site' | 'linkedin' | 'instagram' | 'meetup';
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'GitHub', href: '#', icon: 'github' },
+  {
+    label: 'Site',
+    href: 'https://www.liganuvem.com/gestao',
+    icon: 'site',
+  },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/company/liga-de-computa%C3%A7%C3%A3o-em-nuvem',
