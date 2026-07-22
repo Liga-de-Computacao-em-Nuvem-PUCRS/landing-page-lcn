@@ -11,7 +11,11 @@ export interface SocialLink {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'GitHub', href: '#', icon: 'github' },
-  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/liga-de-computa%C3%A7%C3%A3o-em-nuvem',
+    icon: 'linkedin',
+  },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/liganuvem.pucrs',
