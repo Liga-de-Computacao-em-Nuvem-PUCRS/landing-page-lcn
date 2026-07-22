@@ -5,7 +5,7 @@ export interface SocialLink {
   label: string;
   href: string;
   /** identificador do ícone renderizado no Footer */
-  icon: 'site' | 'linkedin' | 'instagram' | 'meetup';
+  icon: 'site' | 'github' | 'linkedin' | 'instagram' | 'meetup';
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -13,6 +13,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'Site',
     href: 'https://www.liganuvem.com/gestao',
     icon: 'site',
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/Liga-de-Computacao-em-Nuvem-PUCRS',
+    icon: 'github',
   },
   {
     label: 'LinkedIn',
