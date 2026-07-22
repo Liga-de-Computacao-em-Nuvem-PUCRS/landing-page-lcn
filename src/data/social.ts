@@ -12,7 +12,11 @@ export interface SocialLink {
 export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'GitHub', href: '#', icon: 'github' },
   { label: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { label: 'Instagram', href: '#', icon: 'instagram' },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/liganuvem.pucrs',
+    icon: 'instagram',
+  },
   {
     label: 'Meetup',
     href: 'https://www.meetup.com/aws-sbg-pucrs/',
