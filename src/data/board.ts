@@ -50,7 +50,7 @@ export const BOARD: BoardGroup[] = [
         initials: 'BM',
         photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-07%20at%2009.30.10.jpeg',
         photoPosition: '50% 20%',
-        bio: 'Responsável pela pesquisa e desenvolvimento de projetos em cloud computing. Atua como mentor e guia na resolução de problemas técnicos.',
+        bio: 'Responsável pela divulgação e promoção da liga. Organiza os eventos, meetups e palestras que conectam os membros à comunidade cloud.',
       },
       {
         name: 'Pedro Turik',
