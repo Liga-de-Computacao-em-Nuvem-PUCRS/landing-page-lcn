@@ -27,7 +27,7 @@ export const BOARD: BoardGroup[] = [
       },
       {
         name: 'Matheus Morsolin',
-        role: 'Diretor de Eventos',
+        role: 'Vice-Presidente',
         course: 'Ciência da Computação — PUCRS',
         initials: 'MM',
         bio: 'Embaixador AWS Campus Builder da PUCRS, responsável pela divulgação e promoção da liga.',
@@ -45,7 +45,7 @@ export const BOARD: BoardGroup[] = [
       },
       {
         name: 'Bruno Mossmann',
-        role: 'Diretor Técnico',
+        role: 'Diretor de Eventos',
         course: 'Engenharia de Software — PUCRS',
         initials: 'BM',
         photo: 'https://ngl2axdmrupsglkt.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-07%20at%2009.30.10.jpeg',
