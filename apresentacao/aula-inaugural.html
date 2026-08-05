@@ -407,6 +407,54 @@
     #s3 .card h3 { font-size: 32px; margin-bottom: 14px; }
     #s3 .card p { font-size: 16px; line-height: 1.6; }
 
+    /* ===== Slide 3c — O que a liga espera ===== */
+    #s3c { justify-content: center; }
+    #s3c h2 { font-size: 54px; max-width: 780px; }
+    #s3c .qmark {
+      position: absolute;
+      z-index: 0;
+      right: 26px;
+      bottom: -132px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 430px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--azure);
+      opacity: 0.07;
+      pointer-events: none;
+      user-select: none;
+    }
+    #s3c .horizon { margin: 26px 0 6px; }
+    #s3c .pact { display: flex; flex-direction: column; }
+    #s3c .ask-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    #s3c .ask-row:last-child { border-bottom: 0; }
+    #s3c .tick {
+      width: 46px; height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--accent-c, var(--azure)) 13%, #ffffff);
+      border: 1px solid color-mix(in srgb, var(--accent-c, var(--azure)) 28%, transparent);
+    }
+    #s3c .tick .sbg { width: 23px; height: 16px; color: var(--accent-c, var(--azure)); }
+    #s3c .ask-row h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    #s3c .deal { margin-top: 28px; align-self: flex-start; }
+
     /* ===== Slide 3b — Nosso Time ===== */
     #s3b { align-items: center; }
     #s3b .slide-head { text-align: center; margin-bottom: 14px; }
@@ -1010,6 +1058,7 @@
         <symbol id="i-speaker" viewBox="0 0 5592 3440"><path d="M2150 3440H1720V3010H1290V2580H1720V860H1290V430H1720V0H2150V3440ZM4732 3440H4302V3010H4732V3440ZM3871 3010H3441V2580H3871V3010ZM5162 3010H4732V2150H5162V3010ZM1290 2580H860V2150H1290V2580ZM3011 2580H2581V2150H3011V2580ZM4301 2580H3871V860H4301V2580ZM860 2150H0V1290H860V2150ZM3441 2150H3011V1290H3441V2150ZM5592 2150H5162V1290H5592V2150ZM1290 1290H860V860H1290V1290ZM3010 1290H2580V860H3010V1290ZM5161 1290H4731V430H5161V1290ZM3871 860H3441V430H3871V860ZM4731 430H4301V0H4731V430Z" fill="currentColor"/></symbol>
         <symbol id="i-teams" viewBox="0 0 6880 3870"><path d="M430 3870H0V3440H430V3870ZM2150 3870H1720V3440H430V3010H2150V3870ZM6450 3010V3440H5160V3870H4730V3010H6450ZM6880 3870H6450V3440H6880V3870ZM2580 3010H2150V2580H2580V3010ZM4730 3010H4300V2580H4730V3010ZM1720 2580H860V2150H1720V2580ZM4300 2580H2580V2150H4300V2580ZM6020 2580H5160V2150H6020V2580ZM860 2150H430V1290H860V2150ZM2150 2150H1720V1290H2150V2150ZM5160 2150H4730V1290H5160V2150ZM6450 2150H6020V1290H6450V2150ZM3870 1720H3010V1290H3870V1720ZM1720 1290H860V860H1720V1290ZM3010 1290H2580V430H3010V1290ZM4300 1290H3870V430H4300V1290ZM6020 1290H5160V860H6020V1290ZM3870 430H3010V0H3870V430Z" fill="currentColor"/></symbol>
         <symbol id="i-trophy" viewBox="0 0 3870 3870"><path d="M1720 3440H2150V3010H2580V3440H3010V3870H860V3440H1290V3010H1720V3440ZM3010 430H3870V1290H3440V860H3010V1290H3440V1720H3010V2150H2580V2580H2150V3010H1720V2580H1290V2150H860V1720H430V1290H860V860H430V1290H0V430H860V0H3010V430ZM1290 1720H1720V2150H2150V1720H2580V430H1290V1720Z" fill="currentColor"/></symbol>
+        <symbol id="i-check" viewBox="0 0 3010 2150"><path d="M0 860H430V1290H0V860ZM430 1290H860V1720H430V1290ZM860 1720H1290V2150H860V1720ZM1290 1290H1720V1720H1290V1290ZM1720 860H2150V1290H1720V860ZM2150 430H2580V860H2150V430ZM2580 0H3010V430H2580V0Z" fill="currentColor"/></symbol>
         <symbol id="i-wrench" viewBox="0 0 5590 2580"><path d="M1290 430H1720V860H3870V430H4300V0H5160V430H5590V860H4730V1720H5590V2150H5160V2580H4300V2150H3870V1720H1720V2150H1290V2580H430V2150H0V1720H860V860H0V430H430V0H1290V430Z" fill="currentColor"/></symbol>
       </defs></svg>
 
@@ -1127,6 +1176,39 @@
         </div>
       </section>
 
+      <!-- 3c · O que a liga espera de você -->
+      <section class="slide light" id="s3c">
+        <div class="constellation" aria-hidden="true">
+          <span class="fl" style="top:13%; left:93%; width:28px; height:28px; color:rgba(46,139,212,.35); --dur:9s; --fd:.3s; --drift:11px"><svg aria-hidden="true"><use href="#i-bracket-smile"/></svg></span>
+          <span class="fl" style="top:30%; left:96%; width:24px; height:24px; color:rgba(88,214,174,.45); --dur:10s; --fd:.8s; --drift:9px"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+        </div>
+        <span class="qmark" aria-hidden="true">?</span>
+        <div class="ask">
+          <span class="eyebrow a-up" style="--d:.05s">O acordo tem dois lados</span>
+          <h2 class="display a-up" style="margin-top: 14px; --d:.12s">E o que a liga espera <span class="accent-word">de voc&ecirc;</span>?</h2>
+          <div class="horizon a-line" style="--d:.24s"></div>
+        </div>
+        <div class="pact">
+          <div class="ask-row a-left" style="--accent-c: var(--azure); --d:.34s">
+            <span class="tick"><svg class="sbg" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3>Comprometimento</h3>
+          </div>
+          <div class="ask-row a-left" style="--accent-c: #2fae87; --d:.46s">
+            <span class="tick"><svg class="sbg" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3>Assiduidade</h3>
+          </div>
+          <div class="ask-row a-left" style="--accent-c: #d99a0b; --d:.58s">
+            <span class="tick"><svg class="sbg" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3>Estudo pr&oacute;prio</h3>
+          </div>
+          <div class="ask-row a-left" style="--accent-c: var(--magenta); --d:.70s">
+            <span class="tick"><svg class="sbg" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3>Colabora&ccedil;&atilde;o</h3>
+          </div>
+        </div>
+        <span class="chip deal a-up" style="--d:.86s"><span class="dot"></span>Combinado?</span>
+      </section>
+
       <!-- 3b · Nosso Time -->
       <section class="slide dark" id="s3b">
         <div class="constellation" aria-hidden="true">
@@ -1169,7 +1251,7 @@
             <div class="info">
               <h3>Matheus Morsolin</h3>
               <div class="role">Vice-Presidente</div>
-              <div class="course">Ciência da Computação</div>
+              <div class="course">Engenharia de Software</div>
             </div>
           </div>
           <div class="person a-up" style="--d:0.33s">
@@ -1185,7 +1267,7 @@
             <div class="info">
               <h3>Bruno Mossmann</h3>
               <div class="role">Diretor de Eventos</div>
-              <div class="course">Engenharia de Software</div>
+              <div class="course">Ciência da Computação</div>
             </div>
           </div>
           <div class="person a-up" style="--d:0.47s">
