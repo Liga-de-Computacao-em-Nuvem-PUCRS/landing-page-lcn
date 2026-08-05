@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Panfleto 2026/2 · Liga de Computação em Nuvem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Tokens da marca (iguais ao deck aula-inaugural.html) ===== */
+  :root{
+    --paper:#ffffff; --sky-tint:#eff7fd; --baby:#aed8f2;
+    --azure:#2e8bd4; --azure-deep:#1c6aac; --ink:#0b2a45;
+    --mint:#58d6ae; --mint-deep:#2fae87;
+    --amber:#f0b429; --amber-deep:#d99a0b; --magenta:#d6409f;
+    --border:#dbe8f3; --muted-fg:#4a6885;
+
+    --font-sans:'Inter',system-ui,sans-serif;
+    --font-display:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+
+    --bleed: 0mm;   /* BLEED — o build.sh troca por 3mm na versão com sangria */
+    --pad: 7mm;     /* margem de segurança */
+  }
+
+  @page{ size: 105mm 148mm; margin: 0; }   /* PAGESIZE — build.sh troca por 111mm 154mm */
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html,body{
+    font-family:var(--font-sans);
+    letter-spacing:-0.011em;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    background:#8fa5b8;
+  }
+
+  .page{
+    position:relative;
+    width:  calc(105mm + 2 * var(--bleed));
+    height: calc(148mm + 2 * var(--bleed));
+    padding: calc(var(--pad) + var(--bleed));
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    page-break-after:always;
+    break-after:page;
+  }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+
+  /* fundo claro: UM shading opaco só (ver print-pipeline-chrome) */
+  .page.light{ background:linear-gradient(180deg, #e6f2fc 0%, #ffffff 52%); color:var(--ink); }
+
+  /* fundo escuro: ink + grid + vinheta */
+  .page.dark{ background:var(--ink); color:var(--paper); }
+  .page.dark .grid-bg{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(174,216,242,.06) .18mm, transparent .18mm),
+      linear-gradient(90deg, rgba(174,216,242,.06) .18mm, transparent .18mm);
+    background-size:7mm 7mm;
+  }
+  .page.dark .vignette{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(130% 130% at 50% 38%, transparent 52%, rgba(2,10,18,.5) 100%);
+  }
+
+  /* constelação de ícones AWS SBG, como nos slides */
+  .constellation{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+  .fl{ position:absolute; display:block; }
+  .fl svg{ display:block; width:100%; height:100%; }
+
+  /* camadas de fundo ficam atrás; o conteúdo sobe (ver banner.html:44) */
+  .page > *:not(.constellation):not(.grid-bg):not(.vignette){ position:relative; z-index:1; }
+
+  /* ===== tipos de marca ===== */
+  .eyebrow{
+    font-family:var(--font-mono); font-weight:500;
+    font-size:5pt; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--azure-deep);
+  }
+  .dark .eyebrow{ color:var(--baby); }
+
+  .display{
+    font-family:var(--font-display); font-weight:700;
+    letter-spacing:-.035em; line-height:.98; color:var(--ink);
+  }
+  .dark .display{ color:var(--paper); }
+  /* acento sólido — background-clip:text vaza hairlines no print */
+  .accent{ color:var(--azure-deep); }
+  .dark .accent{ color:var(--baby); }
+  .accent-gold{ color:var(--amber); }
+
+  .horizon{
+    height:.2mm; width:100%;
+    background:linear-gradient(90deg, rgba(46,139,212,0), rgba(46,139,212,.42) 22%, rgba(46,139,212,.42) 78%, rgba(46,139,212,0));
+  }
+  .dark .horizon{
+    background:linear-gradient(90deg, rgba(174,216,242,0), rgba(174,216,242,.35) 22%, rgba(174,216,242,.35) 78%, rgba(174,216,242,0));
+  }
+
+  .chip{
+    display:inline-flex; align-items:center; gap:1mm;
+    font-family:var(--font-mono); font-weight:600;
+    font-size:5pt; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--azure-deep);
+    background:rgba(255,255,255,.82);
+    border:.18mm solid var(--border);
+    border-radius:99mm; padding:1.1mm 2.4mm;
+  }
+
+  /* ícones do sprite SBG */
+  .sbg{ display:block; fill:currentColor; }
+
+  /* ===================================================== */
+  /* ===============  FRENTE  ============================ */
+  /* ===================================================== */
+
+  .f-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:3mm; }
+  .f-head .logo{ height:11mm; width:auto; display:block; margin-left:-1mm; }
+  .f-head .tag{ text-align:right; line-height:1.5; padding-top:1mm; }
+  .f-head .tag b{ display:block; font-family:var(--font-mono); font-weight:600;
+    font-size:6.5pt; letter-spacing:.1em; color:var(--ink); }
+
+  .f-title{ margin-top:4mm; font-size:20.5pt; }
+  .f-sub{ margin-top:1.4mm; font-family:var(--font-mono); font-weight:500;
+    font-size:5.4pt; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-fg); }
+
+  .f-rule{ margin:2.6mm 0 2.4mm; }
+
+  .lead{ font-size:7pt; line-height:1.42; color:var(--muted-fg); }
+  .lead strong{ color:var(--ink); font-weight:600; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:1.3mm; margin-top:2.6mm; }
+
+  .cycles{ margin-top:3mm; display:flex; flex-direction:column; gap:1.6mm; }
+  .cyc{
+    position:relative;
+    border:.18mm solid var(--border);
+    border-left:1.1mm solid var(--accent-c);
+    border-radius:1.4mm;
+    background:rgba(255,255,255,.86);
+    padding:1.7mm 2.4mm 1.8mm 2.8mm;
+  }
+  .cyc .n{
+    font-family:var(--font-mono); font-weight:600;
+    font-size:4.6pt; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--accent-c);
+  }
+  .cyc h3{
+    font-family:var(--font-display); font-weight:700;
+    font-size:9.2pt; letter-spacing:-.02em; line-height:1.1;
+    margin-top:.7mm; color:var(--ink);
+  }
+  .cyc p{ margin-top:.8mm; font-size:6pt; line-height:1.34; color:var(--muted-fg); }
+
+  .f-foot{
+    margin-top:auto; padding-top:2.4mm;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:3mm;
+    border-top:.18mm solid var(--border);
+  }
+  .f-foot .site{
+    font-family:var(--font-display); font-weight:700;
+    font-size:8.6pt; letter-spacing:-.02em; color:var(--azure-deep);
+  }
+  .f-foot .ig{
+    font-family:var(--font-mono); font-weight:600;
+    font-size:6.4pt; letter-spacing:.04em; color:var(--muted-fg);
+  }
+
+  /* ===================================================== */
+  /* ===============  VERSO  ============================= */
+  /* ===================================================== */
+
+  .v-head{ display:flex; align-items:baseline; justify-content:space-between; gap:3mm; }
+  .v-head .mark{ font-family:var(--font-mono); font-weight:600; font-size:5pt;
+    letter-spacing:.16em; text-transform:uppercase; color:rgba(174,216,242,.6); }
+
+  .v-title{ margin-top:2.6mm; font-size:18pt; }
+
+  /* ---- meta do semestre ---- */
+  .goal{
+    margin-top:4mm;
+    display:flex; align-items:center; gap:3.6mm;
+    border:.18mm solid rgba(174,216,242,.22);
+    border-radius:1.8mm;
+    background:rgba(174,216,242,.06);
+    padding:3.4mm 3.4mm;
+  }
+  .goal .badge{ width:18mm; height:auto; display:block; flex:none; }
+  .goal .info{ flex:1; }
+  .goal .cert{ font-family:var(--font-display); font-weight:700; font-size:8.6pt;
+    letter-spacing:-.02em; line-height:1.12; color:var(--paper); }
+  .goal .code{ margin-top:1mm; font-family:var(--font-mono); font-weight:500;
+    font-size:5pt; letter-spacing:.1em; color:rgba(174,216,242,.78); }
+  .goal .stats{ display:flex; gap:3.8mm; margin-top:2.8mm; }
+  .goal .st .v{ font-family:var(--font-display); font-weight:700; font-size:10pt;
+    line-height:1; color:var(--mint); letter-spacing:-.03em; }
+  .goal .st .v.free{ color:var(--amber); }
+  .goal .st .l{ margin-top:.7mm; font-size:4.9pt; color:rgba(174,216,242,.72); }
+  .goal .st .old{ font-size:4.9pt; color:rgba(174,216,242,.5);
+    text-decoration:line-through; margin-right:.9mm; }
+
+  /* ---- o que você recebe ---- */
+  .v-label{ margin-top:6.4mm; display:block; }
+  .perks{ margin-top:3mm; display:grid; grid-template-columns:1fr 1fr; gap:3.6mm 3mm; }
+  .perk{ display:flex; gap:2mm; align-items:flex-start; }
+  .perk .ic{
+    flex:none; width:5.4mm; height:5.4mm; border-radius:1.1mm;
+    background:rgba(174,216,242,.1); border:.18mm solid rgba(174,216,242,.2);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .perk .ic svg{ width:3mm; height:3mm; }
+  .perk .c-mint{ color:var(--mint); }
+  .perk .c-amber{ color:var(--amber); }
+  .perk .c-baby{ color:var(--baby); }
+  .perk h4{ font-family:var(--font-display); font-weight:700; font-size:6.9pt;
+    letter-spacing:-.015em; line-height:1.15; color:var(--paper); }
+  .perk p{ margin-top:.7mm; font-size:5.6pt; line-height:1.34; color:rgba(174,216,242,.72); }
+
+  /* ---- o que esperamos ---- */
+  .pact{ margin-top:3mm; display:flex; flex-wrap:wrap; gap:1.6mm; }
+  .pact .chip{
+    color:var(--paper);
+    background:rgba(174,216,242,.08);
+    border-color:rgba(174,216,242,.22);
+    font-size:5.4pt; padding:1.4mm 2.8mm;
+  }
+  .pact .chip svg{ width:2.3mm; height:2.3mm; color:var(--mint); }
+
+  /* ---- rodapé: QR + redes ---- */
+  .v-foot{
+    margin-top:auto; padding-top:5mm;
+    border-top:.18mm solid rgba(174,216,242,.2);
+    display:flex; gap:4mm; align-items:center;
+  }
+  .qr-card{
+    flex:none; background:var(--paper); border-radius:1.6mm; padding:1.6mm 1.6mm 1.2mm;
+    text-align:center; width:23mm;
+  }
+  .qr-card img{ width:19.8mm; height:19.8mm; display:block; }
+  .qr-card .lbl{ display:block; margin-top:1mm; font-family:var(--font-mono);
+    font-weight:600; font-size:3.9pt; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--azure-deep); }
+  .socials{ flex:1; display:flex; flex-direction:column; gap:1.7mm; }
+  .soc{ display:flex; align-items:baseline; gap:2mm; }
+  .soc .net{ flex:none; width:12.6mm; font-family:var(--font-mono); font-weight:600;
+    font-size:4.6pt; letter-spacing:.12em; text-transform:uppercase;
+    color:rgba(174,216,242,.6); }
+  .soc .handle{ font-size:6pt; font-weight:500; color:var(--paper); }
+  .v-sign{ margin-top:3mm; font-family:var(--font-mono); font-weight:500;
+    font-size:4.6pt; letter-spacing:.14em; text-transform:uppercase;
+    color:rgba(174,216,242,.55); }
+</style>
+</head>
+<body>
+
+<!-- Sprite dos ícones AWS SBG (primeiro no body: referência para trás funciona no print) -->
+<svg style="display:none" aria-hidden="true"><defs>
+  <symbol id="i-bolt" viewBox="0 0 2580 3870"><path d="M2150 860H1720V1720H2580V2150H2150V2580H1720V3010H1290V3440H860V3870H430V3010H860V2150H0V1720H430V1290H860V860H1290V430H1720V0H2150V860Z" fill="currentColor"/></symbol>
+  <symbol id="i-bracket-smile" viewBox="0 0 3440 3010"><path d="M860 3010H430V2580H860V3010ZM3010 3010H2580V2580H3010V3010ZM430 2580H0V430H430V2580ZM2150 2580H1290V2150H2150V2580ZM3440 2580H3010V430H3440V2580ZM1290 2150H860V1720H1290V2150ZM2580 2150H2150V1720H2580V2150ZM1290 1290H860V860H1290V1290ZM2580 1290H2150V860H2580V1290ZM860 430H430V0H860V430ZM3010 430H2580V0H3010V430Z" fill="currentColor"/></symbol>
+  <symbol id="i-bracket-smile-double" viewBox="0 0 5160 3012"><path d="M860 3012H430V2582H860V3012ZM1720 3012H1290V2582H1720V3012ZM3870 3012H3440V2582H3870V3012ZM4730 3012H4300V2582H4730V3012ZM430 2582H0V432H430V2582ZM1290 2582H860V432H1290V2582ZM3010 2582H2150V2152H3010V2582ZM4300 2582H3870V432H4300V2582ZM5160 2582H4730V432H5160V2582ZM2150 2152H1720V1722H2150V2152ZM3440 2152H3010V1722H3440V2152ZM2150 1292H1720V862H2150V1292ZM3440 1292H3010V862H3440V1292ZM860 432H430V2H860V432ZM1720 432H1290V2H1720V432ZM4730 432H4300V2H4730V432ZM3870 430H3440V0H3870V430Z" fill="currentColor"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 3010 4300"><path d="M2150 4300H860V3870H2150V4300ZM860 3870H430V3440H860V3870ZM2580 3870H2150V3440H2580V3870ZM430 3440H0V2150H430V3440ZM3010 3440H2580V2150H3010V3440ZM860 2150H430V1290H860V2150ZM2580 2150H2150V1290H2580V2150ZM1290 1290H860V860H1290V1290ZM2150 1290H1720V860H2150V1290ZM1720 860H1290V0H1720V860Z" fill="currentColor"/></symbol>
+  <symbol id="i-key" viewBox="0 0 4300 2150"><path d="M1290 2150H430V1720H1290V2150ZM1720 860H4300V1290H3870V2150H3440V1290H3010V2150H2580V1290H1720V1720H1290V430H1720V860ZM430 1720H0V430H430V1720ZM1290 430H430V0H1290V430Z" fill="currentColor"/></symbol>
+  <symbol id="i-ladder" viewBox="0 0 2580 3870"><path d="M430 430H2150V0H2580V3870H2150V3440H430V3870H0V0H430V430ZM430 3010H2150V2150H430V3010ZM430 1720H2150V860H430V1720Z" fill="currentColor"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 5592 3440"><path d="M2150 3440H1720V3010H1290V2580H1720V860H1290V430H1720V0H2150V3440ZM4732 3440H4302V3010H4732V3440ZM3871 3010H3441V2580H3871V3010ZM5162 3010H4732V2150H5162V3010ZM1290 2580H860V2150H1290V2580ZM3011 2580H2581V2150H3011V2580ZM4301 2580H3871V860H4301V2580ZM860 2150H0V1290H860V2150ZM3441 2150H3011V1290H3441V2150ZM5592 2150H5162V1290H5592V2150ZM1290 1290H860V860H1290V1290ZM3010 1290H2580V860H3010V1290ZM5161 1290H4731V430H5161V1290ZM3871 860H3441V430H3871V860ZM4731 430H4301V0H4731V430Z" fill="currentColor"/></symbol>
+  <symbol id="i-teams" viewBox="0 0 6880 3870"><path d="M430 3870H0V3440H430V3870ZM2150 3870H1720V3440H430V3010H2150V3870ZM6450 3010V3440H5160V3870H4730V3010H6450ZM6880 3870H6450V3440H6880V3870ZM2580 3010H2150V2580H2580V3010ZM4730 3010H4300V2580H4730V3010ZM1720 2580H860V2150H1720V2580ZM4300 2580H2580V2150H4300V2580ZM6020 2580H5160V2150H6020V2580ZM860 2150H430V1290H860V2150ZM2150 2150H1720V1290H2150V2150ZM5160 2150H4730V1290H5160V2150ZM6450 2150H6020V1290H6450V2150ZM3870 1720H3010V1290H3870V1720ZM1720 1290H860V860H1720V1290ZM3010 1290H2580V430H3010V1290ZM4300 1290H3870V430H4300V1290ZM6020 1290H5160V860H6020V1290ZM3870 430H3010V0H3870V430Z" fill="currentColor"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 3870 3870"><path d="M1720 3440H2150V3010H2580V3440H3010V3870H860V3440H1290V3010H1720V3440ZM3010 430H3870V1290H3440V860H3010V1290H3440V1720H3010V2150H2580V2580H2150V3010H1720V2580H1290V2150H860V1720H430V1290H860V860H430V1290H0V430H860V0H3010V430ZM1290 1720H1720V2150H2150V1720H2580V430H1290V1720Z" fill="currentColor"/></symbol>
+  <symbol id="i-check" viewBox="0 0 3010 2150"><path d="M0 860H430V1290H0V860ZM430 1290H860V1720H430V1290ZM860 1720H1290V2150H860V1720ZM1290 1290H1720V1720H1290V1290ZM1720 860H2150V1290H1720V860ZM2150 430H2580V860H2150V430ZM2580 0H3010V430H2580V0Z" fill="currentColor"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 5590 2580"><path d="M1290 430H1720V860H3870V430H4300V0H5160V430H5590V860H4730V1720H5590V2150H5160V2580H4300V2150H3870V1720H1720V2150H1290V2580H430V2150H0V1720H860V860H0V430H430V0H1290V430Z" fill="currentColor"/></symbol>
+</defs></svg>
+
+
+<!-- ==================== FRENTE ==================== -->
+<section class="page light">
+  <div class="constellation" aria-hidden="true">
+    <span class="fl" style="top:7%;  left:88%; width:5mm;   height:5mm;   color:rgba(46,139,212,.28)"><svg><use href="#i-bolt"/></svg></span>
+    <span class="fl" style="top:23%; left:93%; width:4mm;   height:4mm;   color:rgba(88,214,174,.32)"><svg><use href="#i-drop"/></svg></span>
+    <span class="fl" style="top:55%; left:-2%; width:9mm;   height:9mm;   color:rgba(174,216,242,.3)"><svg><use href="#i-bracket-smile-double"/></svg></span>
+    <span class="fl" style="top:84%; left:92%; width:4.6mm; height:4.6mm; color:rgba(240,180,41,.3)"><svg><use href="#i-trophy"/></svg></span>
+  </div>
+
+  <div class="f-head">
+    <img class="logo" src="assets/logo-hero.png" alt="Liga de Computação em Nuvem" />
+    <div class="tag">
+      <span class="eyebrow">Escola Politécnica</span>
+      <b>PUCRS</b>
+    </div>
+  </div>
+
+  <h1 class="display f-title">Semestre <span class="accent">2026/2</span></h1>
+  <p class="f-sub">Liga de Computação em Nuvem</p>
+
+  <div class="horizon f-rule"></div>
+
+  <p class="lead">
+    A comunidade estudantil de computação em nuvem da PUCRS, vinculada ao
+    <strong>AWS Student Builder Group</strong> &mdash; o <strong>único do Rio Grande do Sul</strong>
+    e um dos seis da região Sul.
+  </p>
+
+  <div class="chips">
+    <span class="chip">Quintas-feiras</span>
+    <span class="chip">06/08 &rarr; 03/12</span>
+    <span class="chip">18 encontros</span>
+    <span class="chip">4 ciclos</span>
+  </div>
+
+  <div class="cycles">
+    <div class="cyc" style="--accent-c:var(--azure)">
+      <span class="n">Ciclo 1 · Agosto</span>
+      <h3>Onboarding &amp; Ferramentas</h3>
+      <p>Fundamentos de nuvem, Docker, Terraform e os principais serviços do console AWS.</p>
+    </div>
+    <div class="cyc" style="--accent-c:var(--mint-deep)">
+      <span class="n">Ciclo 2 · Setembro</span>
+      <h3>Certificação CLF-C02</h3>
+      <p>Preparação completa para o exame AWS Certified Cloud Practitioner.</p>
+    </div>
+    <div class="cyc" style="--accent-c:var(--amber-deep)">
+      <span class="n">Ciclo 3 · Outubro</span>
+      <h3>Case com Cliente 1</h3>
+      <p>Squad em projeto real: do case à arquitetura, do Terraform à apresentação final.</p>
+    </div>
+    <div class="cyc" style="--accent-c:var(--magenta)">
+      <span class="n">Ciclo 4 · Nov–Dez</span>
+      <h3>Case com Cliente 2</h3>
+      <p>Segundo cliente, com mais autonomia das squads no ciclo completo de entrega cloud.</p>
+    </div>
+  </div>
+
+  <div class="f-foot">
+    <span class="site">liganuvem.com</span>
+    <span class="ig">@liganuvem.pucrs</span>
+  </div>
+</section>
+
+
+<!-- ==================== VERSO ==================== -->
+<section class="page dark">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="constellation" aria-hidden="true">
+    <span class="fl" style="top:6%;  left:90%; width:4.4mm; height:4.4mm; color:rgba(240,180,41,.3)"><svg><use href="#i-trophy"/></svg></span>
+    <span class="fl" style="top:40%; left:-2%; width:8mm;   height:8mm;   color:rgba(174,216,242,.08)"><svg><use href="#i-bracket-smile"/></svg></span>
+    <span class="fl" style="top:88%; left:92%; width:4mm;   height:4mm;   color:rgba(88,214,174,.22)"><svg><use href="#i-bolt"/></svg></span>
+  </div>
+
+  <div class="v-head">
+    <span class="eyebrow">Nosso maior objetivo</span>
+    <span class="mark">2026/2</span>
+  </div>
+
+  <h2 class="display v-title">Os 30 alunos <span class="accent-gold">certificados</span></h2>
+
+  <div class="goal">
+    <img class="badge" src="assets/badge-aws-ccp.png" alt="Badge AWS Certified Cloud Practitioner" />
+    <div class="info">
+      <div class="cert">AWS Certified Cloud Practitioner</div>
+      <div class="code">CLF-C02 · Foundational</div>
+      <div class="stats">
+        <div class="st"><div class="v">65</div><div class="l">questões</div></div>
+        <div class="st"><div class="v">90</div><div class="l">minutos</div></div>
+        <div class="st"><div class="v">700</div><div class="l">de 1000</div></div>
+        <div class="st"><div class="v free">GRÁTIS</div><div class="l"><span class="old">US$ 100</span>exame</div></div>
+      </div>
+    </div>
+  </div>
+
+  <span class="eyebrow v-label">O que você recebe</span>
+  <div class="perks">
+    <div class="perk">
+      <span class="ic c-mint"><svg class="sbg"><use href="#i-key"/></svg></span>
+      <div><h4>Créditos AWS</h4><p>Conta AWS real para labs, workshops e os cases.</p></div>
+    </div>
+    <div class="perk">
+      <span class="ic c-baby"><svg class="sbg"><use href="#i-ladder"/></svg></span>
+      <div><h4>AWS Skill Builder</h4><p>Trilhas oficiais de aprendizado e laboratórios guiados.</p></div>
+    </div>
+    <div class="perk">
+      <span class="ic c-amber"><svg class="sbg"><use href="#i-trophy"/></svg></span>
+      <div><h4>Voucher de exame</h4><p>Certificação CLF-C02 sem custo pelo programa da AWS.</p></div>
+    </div>
+    <div class="perk">
+      <span class="ic c-baby"><svg class="sbg"><use href="#i-teams"/></svg></span>
+      <div><h4>Comunidade &amp; swag</h4><p>Builder Center, eventos, mentorias e brindes oficiais.</p></div>
+    </div>
+  </div>
+
+  <span class="eyebrow v-label">E o que esperamos de você</span>
+  <div class="pact">
+    <span class="chip"><svg class="sbg"><use href="#i-check"/></svg>Comprometimento</span>
+    <span class="chip"><svg class="sbg"><use href="#i-check"/></svg>Assiduidade</span>
+    <span class="chip"><svg class="sbg"><use href="#i-check"/></svg>Estudo próprio</span>
+  </div>
+
+  <div class="v-foot">
+    <div class="qr-card">
+      <img src="assets/qr/meetup.svg" alt="QR code do grupo no Meetup" />
+      <span class="lbl">Confirme presença</span>
+    </div>
+    <div class="socials">
+      <div class="soc"><span class="net">Meetup</span><span class="handle">meetup.com/aws-sbg-pucrs</span></div>
+      <div class="soc"><span class="net">Site</span><span class="handle">liganuvem.com</span></div>
+      <div class="soc"><span class="net">Instagram</span><span class="handle">@liganuvem.pucrs</span></div>
+      <div class="soc"><span class="net">GitHub</span><span class="handle">Liga-de-Computacao-em-Nuvem-PUCRS</span></div>
+      <div class="v-sign">Nos vemos nas quintas</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
