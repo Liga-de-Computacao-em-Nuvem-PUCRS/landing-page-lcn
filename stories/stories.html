@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories · Encontro Inaugural — Liga de Computação em Nuvem</title>
+  <link rel="icon" type="image/svg+xml" href="assets/lcn2.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ===== Tokens da identidade (mesmos do deck aula-inaugural.html) ===== */
+    :root {
+      --paper: #ffffff;
+      --sky-tint: #eff7fd;
+      --baby: #aed8f2;
+      --azure: #2e8bd4;
+      --azure-deep: #1c6aac;
+      --ink: #0b2a45;
+      --mint: #58d6ae;
+      --amber: #f0b429;
+      --magenta: #d6409f;
+      --border: #dbe8f3;
+      --muted-fg: #4a6885;
+
+      --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+      --pad: 88px;
+      --z: 0.315; /* zoom da folha de contato */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      background: #06131f;
+      font-family: var(--font-sans);
+      letter-spacing: -0.011em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Folha de contato (preview) ===== */
+    #stack {
+      display: flex;
+      gap: 44px;
+      padding: 56px 44px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .frame {
+      width: calc(1080px * var(--z));
+      height: calc(1920px * var(--z));
+      flex: none;
+      position: relative;
+    }
+    .frame > .story { transform: scale(var(--z)); transform-origin: top left; }
+
+    /* ===== Modo export: uma story ocupando exatamente 1080×1920 ===== */
+    body.export { overflow: hidden; }
+    body.export #stack { display: block; padding: 0; }
+    body.export .frame { display: none; width: 1080px; height: 1920px; }
+    body.export .frame.solo { display: block; }
+    body.export .frame > .story { transform: none; }
+    body.export * { animation: none !important; transition: none !important; }
+
+    /* ===== A story ===== */
+    .story {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 190px var(--pad) 170px; /* respeita a UI do Instagram em cima e embaixo */
+    }
+
+    .story.light {
+      background:
+        radial-gradient(760px 620px at 88% 4%, rgba(174, 216, 242, 0.42), transparent 70%),
+        radial-gradient(700px 620px at -8% 96%, rgba(174, 216, 242, 0.3), transparent 70%),
+        linear-gradient(170deg, var(--sky-tint) 0%, var(--paper) 42%, #f6fbff 100%);
+      color: var(--ink);
+    }
+    .story.dark {
+      background:
+        radial-gradient(720px 640px at 92% 2%, rgba(46, 139, 212, 0.32), transparent 70%),
+        radial-gradient(700px 640px at -4% 100%, rgba(88, 214, 174, 0.16), transparent 70%),
+        var(--ink);
+      color: var(--paper);
+    }
+    .story.dark::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(174, 216, 242, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(174, 216, 242, 0.055) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .story.dark::after {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(120% 105% at 50% 42%, transparent 52%, rgba(2, 10, 18, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    /* conteúdo acima das camadas decorativas (mesma armadilha do deck) */
+    .story > *:not(.sky-bg):not(.constellation) { position: relative; z-index: 1; }
+
+    /* miolo ocupa a altura livre entre a marca e o rodapé, centrado */
+    .body {
+      flex: 1;
+      width: 100%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .story.centered .body { align-items: center; }
+
+    /* ===== Céu + constelação (receita do SkyBackground) ===== */
+    .sky-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .sky-bg .halo {
+      position: absolute; left: 50%; top: -16%;
+      width: 1000px; height: 1000px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(174, 216, 242, 0.5) 0%, rgba(174, 216, 242, 0) 68%);
+      filter: blur(44px);
+    }
+    .sky-bg .cloud { position: absolute; border-radius: 999px; background: rgba(255, 255, 255, 0.7); filter: blur(70px); }
+    .constellation { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .constellation .fl {
+      position: absolute; opacity: 0.72;
+      animation: floatDrift var(--dur, 9s) ease-in-out infinite;
+      animation-delay: var(--fd, 0s);
+    }
+    .constellation .fl svg { display: block; width: 100%; height: 100%; }
+    @keyframes floatDrift {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(calc(var(--drift, 14px) * -1)) rotate(3deg); }
+    }
+
+    /* ===== Tipos de marca ===== */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--azure-deep);
+      display: block;
+    }
+    .dark .eyebrow { color: var(--baby); }
+
+    .display {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.038em;
+      line-height: 0.96;
+      color: var(--ink);
+    }
+    .dark .display { color: var(--paper); }
+
+    .accent-word {
+      background: linear-gradient(100deg, var(--azure-deep) 0%, var(--azure) 45%, #6cc0ee 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .dark .accent-word {
+      background: linear-gradient(100deg, #6cc0ee 0%, var(--azure) 40%, var(--mint) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .accent-gold {
+      background: linear-gradient(100deg, #f7d774 0%, var(--amber) 55%, #c98a12 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 3.5s linear infinite;
+    }
+    @keyframes shimmer { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+    .accent-magenta { color: var(--magenta); }
+
+    .horizon {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(46, 139, 212, 0.42) 22%, rgba(46, 139, 212, 0.42) 78%, transparent);
+    }
+    .dark .horizon {
+      background: linear-gradient(90deg, transparent, rgba(174, 216, 242, 0.32) 22%, rgba(174, 216, 242, 0.32) 78%, transparent);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      border: 1.5px solid var(--border);
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 999px;
+      padding: 17px 34px;
+      font-family: var(--font-mono);
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--azure-deep);
+    }
+    .dark .chip {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(174, 216, 242, 0.22);
+      color: var(--baby);
+    }
+    .chip .dot { width: 14px; height: 14px; border-radius: 999px; background: var(--mint); position: relative; flex: none; }
+    .chip .dot::after {
+      content: '';
+      position: absolute; inset: -7px;
+      border-radius: 999px;
+      background: var(--mint);
+      opacity: 0.4;
+      animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes ping { 0% { transform: scale(0.6); opacity: 0.5; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 19px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      color: var(--muted-fg);
+      white-space: nowrap;
+    }
+    .dark .tag { border-color: rgba(174, 216, 242, 0.2); color: rgba(239, 247, 253, 0.7); }
+
+    .sbg { display: block; width: 100%; height: 100%; }
+
+    /* ===== Marca no topo ===== */
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 54px;
+    }
+    .top img { height: 76px; width: auto; flex: none; }
+    .top .wordmark {
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--azure-deep);
+    }
+    .dark .top .wordmark { color: rgba(174, 216, 242, 0.85); }
+
+    /* ===== Rodapé ===== */
+    .foot { width: 100%; padding-top: 46px; }
+    .foot .horizon { margin-bottom: 28px; }
+    .foot .line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: var(--font-mono);
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted-fg);
+    }
+    .dark .foot .line { color: rgba(174, 216, 242, 0.7); }
+    .foot .line strong { color: var(--azure-deep); font-weight: 600; }
+    .dark .foot .line strong { color: var(--baby); }
+
+    /* ============================================================
+       1 · É HOJE
+       ============================================================ */
+    #s1 { align-items: center; text-align: center; }
+    #s1 .top { justify-content: center; }
+    #s1 .hero { margin-top: 20px; }
+    #s1 .kicker {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 62px;
+      letter-spacing: -0.03em;
+      color: var(--muted-fg);
+      margin-bottom: 6px;
+    }
+    #s1 h1 { font-size: 250px; font-weight: 800; letter-spacing: -0.055em; }
+    #s1 .horizon.mid { max-width: 620px; margin: 58px auto 44px; }
+    #s1 .sub {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 1.24;
+      letter-spacing: -0.025em;
+      color: var(--azure-deep);
+      max-width: 700px;
+    }
+    #s1 .chip { margin-top: 54px; }
+    #s1 .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      width: 100%;
+      margin-top: 76px;
+    }
+    #s1 .fact {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid var(--border);
+      border-radius: 26px;
+      padding: 30px 32px 32px;
+      text-align: left;
+      box-shadow: 0 26px 60px -34px rgba(46, 139, 212, 0.5);
+    }
+    #s1 .fact .k {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--azure);
+      display: block;
+      margin-bottom: 12px;
+    }
+    #s1 .fact .v {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    /* ============================================================
+       2 · A PROGRAMAÇÃO
+       ============================================================ */
+    #s2 h2 { font-size: 96px; margin-top: 18px; }
+    #s2 .rail {
+      margin-top: 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    #s2 .act {
+      display: grid;
+      grid-template-columns: 150px 96px 1fr;
+      gap: 30px;
+      align-items: start;
+      padding: 42px 0 54px;
+      position: relative;
+    }
+    #s2 .act + .act { border-top: 1.5px solid rgba(174, 216, 242, 0.16); }
+    #s2 .act .time {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 40px;
+      letter-spacing: -0.01em;
+      color: var(--accent-c);
+      padding-top: 14px;
+    }
+    #s2 .act .pill {
+      width: 96px; height: 96px;
+      border-radius: 26px;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--accent-c) 16%, transparent);
+      border: 1.5px solid color-mix(in srgb, var(--accent-c) 34%, transparent);
+    }
+    #s2 .act .pill span { display: block; width: 44px; height: 44px; color: var(--accent-c); }
+    #s2 .act h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: var(--paper);
+      margin-bottom: 14px;
+      padding-top: 8px;
+    }
+    #s2 .act p {
+      font-size: 27px;
+      line-height: 1.5;
+      color: rgba(239, 247, 253, 0.66);
+      max-width: 560px;
+    }
+
+    /* ============================================================
+       3 · DAIANE DALAVI
+       ============================================================ */
+    #s3 { --accent-c: var(--magenta); }
+    #s3 .portrait {
+      width: 430px;
+      align-self: center;
+      margin: 44px 0 60px;
+      position: relative;
+    }
+    #s3 .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 30px;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 44px 90px -40px rgba(11, 42, 69, 0.5), 0 0 0 12px rgba(255, 255, 255, 0.85);
+    }
+    #s3 .portrait::after {
+      content: '';
+      position: absolute;
+      left: -26px; right: -26px; bottom: -26px; top: 46px;
+      border-radius: 40px;
+      background: radial-gradient(60% 60% at 50% 100%, rgba(214, 64, 159, 0.28), transparent 72%);
+      z-index: -1;
+    }
+    #s3 h2 { font-size: 92px; }
+    #s3 .role {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 38px;
+      letter-spacing: -0.025em;
+      color: var(--magenta);
+      margin-top: 18px;
+    }
+    #s3 .lead {
+      font-size: 29px;
+      line-height: 1.52;
+      color: var(--muted-fg);
+      margin-top: 30px;
+      max-width: 830px;
+    }
+    #s3 .lead strong { color: var(--ink); font-weight: 600; }
+    #s3 .tags { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+    #s3 .tags .tag { border-color: rgba(214, 64, 159, 0.3); color: #a32d78; }
+    #s3 .bar {
+      width: 118px; height: 8px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--magenta), rgba(214, 64, 159, 0.18));
+      margin-bottom: 26px;
+    }
+
+    /* ============================================================
+       4 · MURILO LANG · GOLDEN JACKET
+       ============================================================ */
+    #s4 { text-align: center; align-items: center; }
+    #s4 .top { justify-content: center; }
+    #s4 .avatar {
+      width: 560px; height: 560px;
+      border-radius: 999px;
+      margin: 76px 0 74px;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, rgba(240, 180, 41, 0.35), transparent 70%);
+    }
+    #s4 .avatar img {
+      display: block;
+      width: 100%; height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 10px solid var(--amber);
+      box-shadow: 0 0 0 26px rgba(240, 180, 41, 0.12), 0 50px 120px -40px rgba(240, 180, 41, 0.65);
+    }
+    #s4 h2 { font-size: 138px; }
+    #s4 .jacket {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 76px;
+      letter-spacing: -0.035em;
+      margin-top: 22px;
+    }
+    #s4 .place {
+      font-family: var(--font-mono);
+      font-size: 30px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(174, 216, 242, 0.7);
+      margin-top: 34px;
+    }
+    #s4 .eyebrow { font-size: 29px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Formas da identidade AWS SBG (inline: o deck usa symbols porque CSS mask não roda em file://) -->
+  <svg style="display:none" aria-hidden="true"><defs>
+    <symbol id="i-bolt" viewBox="0 0 2580 3870"><path d="M2150 860H1720V1720H2580V2150H2150V2580H1720V3010H1290V3440H860V3870H430V3010H860V2150H0V1720H430V1290H860V860H1290V430H1720V0H2150V860Z" fill="currentColor"/></symbol>
+    <symbol id="i-bracket-smile" viewBox="0 0 3440 3010"><path d="M860 3010H430V2580H860V3010ZM3010 3010H2580V2580H3010V3010ZM430 2580H0V430H430V2580ZM2150 2580H1290V2150H2150V2580ZM3440 2580H3010V430H3440V2580ZM1290 2150H860V1720H1290V2150ZM2580 2150H2150V1720H2580V2150ZM1290 1290H860V860H1290V1290ZM2580 1290H2150V860H2580V1290ZM860 430H430V0H860V430ZM3010 430H2580V0H3010V430Z" fill="currentColor"/></symbol>
+    <symbol id="i-bracket-smile-double" viewBox="0 0 5160 3012"><path d="M860 3012H430V2582H860V3012ZM1720 3012H1290V2582H1720V3012ZM3870 3012H3440V2582H3870V3012ZM4730 3012H4300V2582H4730V3012ZM430 2582H0V432H430V2582ZM1290 2582H860V432H1290V2582ZM3010 2582H2150V2152H3010V2582ZM4300 2582H3870V432H4300V2582ZM5160 2582H4730V432H5160V2582ZM2150 2152H1720V1722H2150V2152ZM3440 2152H3010V1722H3440V2152ZM2150 1292H1720V862H2150V1292ZM3440 1292H3010V862H3440V1292ZM860 432H430V2H860V432ZM1720 432H1290V2H1720V432ZM4730 432H4300V2H4730V432ZM3870 430H3440V0H3870V430Z" fill="currentColor"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 3010 4300"><path d="M2150 4300H860V3870H2150V4300ZM860 3870H430V3440H860V3870ZM2580 3870H2150V3440H2580V3870ZM430 3440H0V2150H430V3440ZM3010 3440H2580V2150H3010V3440ZM860 2150H430V1290H860V2150ZM2580 2150H2150V1290H2580V2150ZM1290 1290H860V860H1290V1290ZM2150 1290H1720V860H2150V1290ZM1720 860H1290V0H1720V860Z" fill="currentColor"/></symbol>
+    <symbol id="i-key" viewBox="0 0 4300 2150"><path d="M1290 2150H430V1720H1290V2150ZM1720 860H4300V1290H3870V2150H3440V1290H3010V2150H2580V1290H1720V1720H1290V430H1720V860ZM430 1720H0V430H430V1720ZM1290 430H430V0H1290V430Z" fill="currentColor"/></symbol>
+    <symbol id="i-ladder" viewBox="0 0 2580 3870"><path d="M430 430H2150V0H2580V3870H2150V3440H430V3870H0V0H430V430ZM430 3010H2150V2150H430V3010ZM430 1720H2150V860H430V1720Z" fill="currentColor"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 5592 3440"><path d="M2150 3440H1720V3010H1290V2580H1720V860H1290V430H1720V0H2150V3440ZM4732 3440H4302V3010H4732V3440ZM3871 3010H3441V2580H3871V3010ZM5162 3010H4732V2150H5162V3010ZM1290 2580H860V2150H1290V2580ZM3011 2580H2581V2150H3011V2580ZM4301 2580H3871V860H4301V2580ZM860 2150H0V1290H860V2150ZM3441 2150H3011V1290H3441V2150ZM5592 2150H5162V1290H5592V2150ZM1290 1290H860V860H1290V1290ZM3010 1290H2580V860H3010V1290ZM5161 1290H4731V430H5161V1290ZM3871 860H3441V430H3871V860ZM4731 430H4301V0H4731V430Z" fill="currentColor"/></symbol>
+    <symbol id="i-teams" viewBox="0 0 6880 3870"><path d="M430 3870H0V3440H430V3870ZM2150 3870H1720V3440H430V3010H2150V3870ZM6450 3010V3440H5160V3870H4730V3010H6450ZM6880 3870H6450V3440H6880V3870ZM2580 3010H2150V2580H2580V3010ZM4730 3010H4300V2580H4730V3010ZM1720 2580H860V2150H1720V2580ZM4300 2580H2580V2150H4300V2580ZM6020 2580H5160V2150H6020V2580ZM860 2150H430V1290H860V2150ZM2150 2150H1720V1290H2150V2150ZM5160 2150H4730V1290H5160V2150ZM6450 2150H6020V1290H6450V2150ZM3870 1720H3010V1290H3870V1720ZM1720 1290H860V860H1720V1290ZM3010 1290H2580V430H3010V1290ZM4300 1290H3870V430H4300V1290ZM6020 1290H5160V860H6020V1290ZM3870 430H3010V0H3870V430Z" fill="currentColor"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 3870 3870"><path d="M1720 3440H2150V3010H2580V3440H3010V3870H860V3440H1290V3010H1720V3440ZM3010 430H3870V1290H3440V860H3010V1290H3440V1720H3010V2150H2580V2580H2150V3010H1720V2580H1290V2150H860V1720H430V1290H860V860H430V1290H0V430H860V0H3010V430ZM1290 1720H1720V2150H2150V1720H2580V430H1290V1720Z" fill="currentColor"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 5590 2580"><path d="M1290 430H1720V860H3870V430H4300V0H5160V430H5590V860H4730V1720H5590V2150H5160V2580H4300V2150H3870V1720H1720V2150H1290V2580H430V2150H0V1720H860V860H0V430H430V0H1290V430Z" fill="currentColor"/></symbol>
+  </defs></svg>
+
+  <div id="stack">
+
+    <!-- ══════════════ 1 · É HOJE ══════════════ -->
+    <div class="frame" data-s="1">
+      <section class="story light centered" id="s1">
+        <div class="sky-bg" aria-hidden="true">
+          <div class="halo"></div>
+          <div class="cloud" style="left:-12%; bottom:-6%; width:760px; height:330px"></div>
+          <div class="cloud" style="right:-10%; bottom:14%; width:600px; height:270px; background:rgba(255,255,255,.6)"></div>
+        </div>
+        <div class="constellation" aria-hidden="true">
+          <span class="fl" style="top:15%; left:6%;  width:64px; height:64px; color:var(--baby); --dur:8s;  --fd:0s;   --drift:20px"><svg><use href="#i-bracket-smile"/></svg></span>
+          <span class="fl" style="top:22%; left:84%; width:46px; height:46px; color:var(--mint); --dur:9s;  --fd:.6s;  --drift:15px"><svg><use href="#i-bolt"/></svg></span>
+          <span class="fl" style="top:47%; left:5%;  width:42px; height:42px; color:rgba(46,139,212,.45); --dur:11s; --fd:1.1s; --drift:17px"><svg><use href="#i-drop"/></svg></span>
+          <span class="fl" style="top:57%; left:87%; width:70px; height:70px; color:var(--baby); --dur:10s; --fd:.3s;  --drift:22px"><svg><use href="#i-bracket-smile-double"/></svg></span>
+          <span class="fl" style="top:33%; left:90%; width:40px; height:40px; color:rgba(240,180,41,.5); --dur:12s; --fd:.9s; --drift:13px"><svg><use href="#i-trophy"/></svg></span>
+          <span class="fl" style="top:70%; left:12%; width:44px; height:44px; color:rgba(46,139,212,.35); --dur:13s; --fd:1.4s; --drift:16px"><svg><use href="#i-ladder"/></svg></span>
+        </div>
+
+        <div class="top">
+          <img src="assets/lcn2.svg" alt="Liga de Computação em Nuvem" />
+          <span class="wordmark">Escola Politécnica<br />PUCRS</span>
+        </div>
+
+        <div class="body">
+          <div class="hero">
+            <span class="eyebrow">Encontro inaugural · Turma 2026/2</span>
+            <p class="kicker" style="margin-top:38px">O nosso encontro</p>
+            <h1 class="display"><span class="accent-word">é hoje.</span></h1>
+          </div>
+
+          <div class="horizon mid"></div>
+          <p class="sub">A Liga de Computação em Nuvem começa a jornada 2026/2 nesta quinta-feira.</p>
+          <span class="chip"><span class="dot"></span>A partir das 15h</span>
+
+          <div class="facts">
+            <div class="fact">
+              <span class="k">Onde</span>
+              <p class="v">Sala 517<br />Prédio 32</p>
+            </div>
+            <div class="fact">
+              <span class="k">Quando</span>
+              <p class="v">06 · ago<br />15h00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="foot">
+          <div class="horizon"></div>
+          <div class="line"><span>Liga de Computação em Nuvem</span><strong>PUCRS · 2026/2</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════════ 2 · A PROGRAMAÇÃO ══════════════ -->
+    <div class="frame" data-s="2">
+      <section class="story dark" id="s2">
+        <div class="constellation" aria-hidden="true">
+          <span class="fl" style="top:8%;  left:90%; width:46px; height:46px; color:rgba(88,214,174,.5);  --dur:9s;  --fd:.4s;  --drift:15px"><svg><use href="#i-bolt"/></svg></span>
+          <span class="fl" style="top:78%; left:4%;  width:56px; height:56px; color:rgba(174,216,242,.16); --dur:12s; --fd:0s;   --drift:18px"><svg><use href="#i-bracket-smile-double"/></svg></span>
+          <span class="fl" style="top:90%; left:88%; width:40px; height:40px; color:rgba(46,139,212,.4);  --dur:10s; --fd:.9s;  --drift:14px"><svg><use href="#i-drop"/></svg></span>
+        </div>
+
+        <div class="top">
+          <img src="assets/lcn2.svg" alt="Liga de Computação em Nuvem" />
+          <span class="wordmark">Encontro inaugural<br />Hoje · 15h</span>
+        </div>
+
+        <div class="body">
+        <span class="eyebrow">A programação</span>
+        <h2 class="display">A tarde em <span class="accent-word">três atos</span></h2>
+
+        <div class="rail">
+          <div class="act" style="--accent-c: var(--baby)">
+            <span class="time">15h00</span>
+            <div class="pill"><span><svg class="sbg"><use href="#i-ladder"/></svg></span></div>
+            <div>
+              <h3>Apresentação do projeto</h3>
+              <p>Como a Liga funciona, os ciclos do programa e a trilha que vocês vão percorrer.</p>
+            </div>
+          </div>
+
+          <div class="act" style="--accent-c: var(--mint)">
+            <span class="time">15h30</span>
+            <div class="pill"><span><svg class="sbg"><use href="#i-speaker"/></svg></span></div>
+            <div>
+              <h3>Oportunidades na carreira Cloud</h3>
+              <p>Os líderes da Comunidade AWS assumem o palco para falar de mercado e dos caminhos na nuvem.</p>
+            </div>
+          </div>
+
+          <div class="act" style="--accent-c: var(--amber)">
+            <span class="time">16h00</span>
+            <div class="pill"><span><svg class="sbg"><use href="#i-teams"/></svg></span></div>
+            <div>
+              <h3>Coffee break</h3>
+              <p>O momento de conhecer quem está trilhando o mesmo caminho que você.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="foot">
+          <div class="horizon"></div>
+          <div class="line"><span>Sala 517 · Prédio 32</span><strong>PUCRS</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════════ 3 · DAIANE DALAVI ══════════════ -->
+    <div class="frame" data-s="3">
+      <section class="story light" id="s3">
+        <div class="sky-bg" aria-hidden="true">
+          <div class="halo" style="background:radial-gradient(circle, rgba(214,64,159,.16) 0%, rgba(214,64,159,0) 66%)"></div>
+          <div class="cloud" style="left:-14%; bottom:2%; width:700px; height:300px"></div>
+        </div>
+        <div class="constellation" aria-hidden="true">
+          <span class="fl" style="top:12%; left:88%; width:50px; height:50px; color:rgba(214,64,159,.3); --dur:10s; --fd:.2s; --drift:16px"><svg><use href="#i-speaker"/></svg></span>
+          <span class="fl" style="top:33%; left:4%;  width:40px; height:40px; color:rgba(46,139,212,.32); --dur:12s; --fd:.8s; --drift:14px"><svg><use href="#i-bolt"/></svg></span>
+        </div>
+
+        <div class="top">
+          <img src="assets/lcn2.svg" alt="Liga de Computação em Nuvem" />
+          <span class="wordmark">Encontro inaugural<br />Hoje · 15h</span>
+        </div>
+
+        <div class="body">
+        <span class="eyebrow" style="color:var(--magenta)">15h30 · Convidada</span>
+
+        <div class="portrait">
+          <img src="assets/daiane.png" alt="Daiane Dalavi" />
+        </div>
+
+        <div class="bar"></div>
+        <h2 class="display">Daiane Dalavi</h2>
+        <p class="role">Líder do AWS User Group Canoas</p>
+
+        <p class="lead">
+          Ela abre as <strong>Oportunidades na carreira Cloud</strong> às 15h30 — o que o mercado
+          está pedindo e por onde começa quem quer viver de nuvem.
+        </p>
+
+        <div class="tags">
+          <span class="tag">CEO na Squad.go!</span>
+          <span class="tag">Mentora Escola da Nuvem</span>
+          <span class="tag">Ambassador Despertar RS</span>
+          <span class="tag">AWS Certification</span>
+        </div>
+        </div>
+
+        <div class="foot">
+          <div class="horizon"></div>
+          <div class="line"><span>Sala 517 · Prédio 32</span><strong>Hoje · 15h30</strong></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════════ 4 · MURILO LANG ══════════════ -->
+    <div class="frame" data-s="4">
+      <section class="story dark centered" id="s4">
+        <div class="constellation" aria-hidden="true">
+          <span class="fl" style="top:10%; left:5%;  width:48px; height:48px; color:rgba(240,180,41,.4);  --dur:9s;  --fd:.2s; --drift:15px"><svg><use href="#i-trophy"/></svg></span>
+          <span class="fl" style="top:16%; left:88%; width:44px; height:44px; color:rgba(240,180,41,.3);  --dur:11s; --fd:.7s; --drift:13px"><svg><use href="#i-key"/></svg></span>
+          <span class="fl" style="top:84%; left:90%; width:38px; height:38px; color:rgba(174,216,242,.16); --dur:8s; --fd:1.1s; --drift:12px"><svg><use href="#i-bolt"/></svg></span>
+          <span class="fl" style="top:62%; left:4%;  width:44px; height:44px; color:rgba(240,180,41,.22); --dur:13s; --fd:.5s; --drift:14px"><svg><use href="#i-trophy"/></svg></span>
+        </div>
+
+        <div class="top">
+          <img src="assets/lcn2.svg" alt="Liga de Computação em Nuvem" />
+          <span class="wordmark">Encontro inaugural<br />Hoje · 15h</span>
+        </div>
+
+        <div class="body">
+        <span class="eyebrow" style="color:var(--amber)">Presença ilustre</span>
+
+        <div class="avatar">
+          <img src="assets/murilo.png" alt="Murilo Lang" />
+        </div>
+
+        <h2 class="display">Murilo Lang</h2>
+        <p class="jacket"><span class="accent-gold">AWS Golden Jacket</span></p>
+        <p class="place">Porto Alegre · RS</p>
+        </div>
+
+        <div class="foot">
+          <div class="horizon"></div>
+          <div class="line"><span>Sala 517 · Prédio 32</span><strong>Hoje · 15h</strong></div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    // ?s=N → modo export: só a story N, em 1080×1920, sem animação.
+    var only = new URLSearchParams(location.search).get('s');
+    if (only) {
+      document.body.classList.add('export');
+      var f = document.querySelector('.frame[data-s="' + only + '"]');
+      if (f) f.classList.add('solo');
+    }
+  </script>
+</body>
+</html>
