@@ -36,6 +36,33 @@ export const NEWS: NewsItem[] = [
       'Nova Local Zone em Atenas, chegada do Claude Opus 5 ao Amazon Bedrock com zero data retention por padrão, execução durável do Lambda para .NET (checkpoint automático de até um ano) e observabilidade do Bedrock AgentCore unificada em um log group do CloudWatch.',
   },
   {
+    title: 'GPT-5.6 now available in Microsoft Foundry',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-07-09',
+    url: 'https://azure.microsoft.com/en-us/blog/gpt-5-6-now-available-in-microsoft-foundry/',
+    summary:
+      'A Microsoft trouxe os modelos GPT-5.6 Sol, Terra e Luna para o Foundry, lançou a Data Zone da Ásia-Pacífico para processamento regional e tornou os agentes hospedados do Foundry Agent Service disponíveis de forma geral.',
+  },
+  {
+    title: 'Meet Brain: The AI system behind Azure reliability',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-07-02',
+    url: 'https://azure.microsoft.com/en-us/blog/meet-brain-the-ai-system-behind-azure-reliability/',
+    summary:
+      'Bastidores do Brain, o sistema de AIOps que sustenta a confiabilidade do Azure: uma camada sobre o Azure Resource Graph que combina telemetria, modelos de ML e dependências entre serviços para automatizar notificações de saúde, travas de deploy e declaração de incidentes.',
+  },
+  {
+    title: 'Claude in Microsoft Foundry is now generally available',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-06-29',
+    url: 'https://azure.microsoft.com/en-us/blog/claude-in-microsoft-foundry-is-now-generally-available/',
+    summary:
+      'Os modelos Claude da Anthropic passaram a estar disponíveis de forma geral no Microsoft Foundry, acessíveis pela conta Azure existente com autenticação, billing, governança e residência de dados nativos da plataforma.',
+  },
+  {
     title: 'Top announcements of the AWS Summit in New York, 2026',
     source: 'AWS News Blog',
     provider: 'aws',
