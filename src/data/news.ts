@@ -6,6 +6,36 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title:
+      'AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-08-17',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/',
+    summary:
+      'O EC2 ganhou uma verificação de status em nível de aplicação (detecta servidor web parado, daemon Docker fora do ar), o IAM passou a criar e reaproveitar roles automaticamente pelo console, e os modelos de cibersegurança OpenAI Daybreak chegaram ao Bedrock.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: Price reduction of GPT models in Bedrock, CloudWatch managed collectors for Prometheus metrics, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-08-03',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-price-reduction-of-gpt-models-in-bedrock-cloudwatch-managed-collectors-for-prometheus-metrics-and-more-august-3-2026/',
+    summary:
+      'Corte de até 80% no preço dos modelos GPT-5.6 no Bedrock, coletores gerenciados de métricas Prometheus no CloudWatch (EKS, EC2, ECS, MSK e OpenSearch sem agente) e o AWS Interconnect em disponibilidade geral para a Oracle Cloud.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: Local Zone in Athens, Claude Opus 5 on AWS, Lambda durable execution for .NET, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-07-27',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-july-27-2026/',
+    summary:
+      'Nova Local Zone em Atenas, chegada do Claude Opus 5 ao Amazon Bedrock com zero data retention por padrão, execução durável do Lambda para .NET (checkpoint automático de até um ano) e observabilidade do Bedrock AgentCore unificada em um log group do CloudWatch.',
+  },
+  {
     title: 'Top announcements of the AWS Summit in New York, 2026',
     source: 'AWS News Blog',
     provider: 'aws',
