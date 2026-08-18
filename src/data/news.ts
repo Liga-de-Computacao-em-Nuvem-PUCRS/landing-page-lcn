@@ -17,6 +17,16 @@ export const NEWS: NewsItem[] = [
   },
   {
     title:
+      'Expanding connectivity in the Americas: Introducing Alisios, Canoa, and OlaLuz subsea cables',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-08-11',
+    url: 'https://cloud.google.com/blog/products/infrastructure/introducing-americas-connect',
+    summary:
+      'O Google anunciou o Americas Connect: três novos cabos submarinos ligando República Dominicana, Panamá, Chile, Bermudas e Flórida, criando anéis redundantes de rede entre Pacífico, Caribe e Atlântico para as regiões do Google Cloud nas Américas.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: Price reduction of GPT models in Bedrock, CloudWatch managed collectors for Prometheus metrics, and more',
     source: 'AWS News Blog',
     provider: 'aws',
@@ -24,6 +34,16 @@ export const NEWS: NewsItem[] = [
     url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-price-reduction-of-gpt-models-in-bedrock-cloudwatch-managed-collectors-for-prometheus-metrics-and-more-august-3-2026/',
     summary:
       'Corte de até 80% no preço dos modelos GPT-5.6 no Bedrock, coletores gerenciados de métricas Prometheus no CloudWatch (EKS, EC2, ECS, MSK e OpenSearch sem agente) e o AWS Interconnect em disponibilidade geral para a Oracle Cloud.',
+  },
+  {
+    title:
+      'What Google Cloud announced in AI this month — and how it helps you',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-07-31',
+    url: 'https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month',
+    summary:
+      'Retrospectiva mensal de IA do Google Cloud: Agent Runtime e Agent Identity liberados para todos no Gemini Enterprise Agent Platform, o agente de segurança CodeMender em preview e o AlphaEvolve disponível para otimização de código e algoritmos.',
   },
   {
     title:
