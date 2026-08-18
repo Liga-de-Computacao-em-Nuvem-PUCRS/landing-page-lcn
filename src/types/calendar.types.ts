@@ -1,4 +1,4 @@
-export type CycleKey = 'c1' | 'c2' | 'c3' | 'c4';
+export type CycleKey = 'c1' | 'c2' | 'c3';
 
 export interface Meeting {
   /** número do encontro (1–18) */

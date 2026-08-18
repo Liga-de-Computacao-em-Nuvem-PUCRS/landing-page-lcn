@@ -8,7 +8,7 @@ export default function CalendarioPage() {
     <div className="flex flex-col">
       <PageHero
         eyebrow="Programa-piloto 2026/2"
-        title={<>Calendário em 4 ciclos</>}
+        title={<>Calendário em 3 ciclos</>}
         description="Encontros toda quinta-feira, previsto no Calendário 2026/02. "
       >
         <div className="flex flex-wrap gap-2">

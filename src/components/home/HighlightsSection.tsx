@@ -30,7 +30,7 @@ const JOURNEY = [
 const EXPLORE = [
   { to: '/gestao', label: 'Gestão', desc: 'Quem conduz a liga' },
   { to: '/recursos', label: 'Recursos', desc: 'Plataformas e ferramentas' },
-  { to: '/calendario', label: 'Calendário', desc: '4 ciclos, 18 encontros' },
+  { to: '/calendario', label: 'Calendário', desc: '3 ciclos, 18 encontros' },
   { to: '/certificacoes', label: 'Certificações', desc: 'AWS · Azure · GCP' },
 ] as const;
 

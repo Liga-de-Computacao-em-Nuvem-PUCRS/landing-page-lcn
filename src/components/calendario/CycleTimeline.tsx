@@ -18,6 +18,7 @@ function kindStyle(kind: string): { background: string; color: string } {
   if (k.includes('extensão')) return { background: '#fbeaf4', color: '#c72f8f' };
   if (k.includes('comunidade')) return { background: '#f0eafc', color: '#7b3fd6' };
   if (k.includes('ensino')) return { background: '#e4f2fc', color: '#1c6aac' };
+  if (k.includes('palestrante')) return { background: '#ece9fb', color: '#5b4bd6' };
   return { background: '#eef0f4', color: '#3f5a76' };
 }
 
