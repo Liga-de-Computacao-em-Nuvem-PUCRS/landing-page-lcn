@@ -19,6 +19,9 @@ function formatDate(iso: string) {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
+    // a data vem como YYYY-MM-DD e é parseada em UTC — sem isso, o fuso
+    // local (UTC-3) joga a exibição para o dia anterior.
+    timeZone: 'UTC',
   });
 }
 
