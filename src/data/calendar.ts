@@ -63,8 +63,8 @@ export const CYCLES: Cycle[] = [
       {
         n: 6,
         date: '10/09',
-        topic: 'Serviços de computação e integração',
-        kind: 'Ensino / Palestrante convidado',
+        topic: 'WAF e CAF: Well-Architected e Cloud Adoption Framework',
+        kind: 'Ensino',
       },
       {
         n: 7,
@@ -99,8 +99,8 @@ export const CYCLES: Cycle[] = [
       {
         n: 12,
         date: '22/10',
-        topic: 'WAF e CAF: Well-Architected e Cloud Adoption Framework',
-        kind: 'Ensino',
+        topic: 'Serviços de computação e integração',
+        kind: 'Ensino / Palestrante convidado',
       },
       {
         n: 13,
