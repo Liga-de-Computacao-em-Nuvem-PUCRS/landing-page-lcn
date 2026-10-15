@@ -75,32 +75,32 @@ export const CYCLES: Cycle[] = [
       {
         n: 8,
         date: '24/09',
-        topic: 'Atividade hands-on',
-        kind: 'Hands-on',
-      },
-      {
-        n: 9,
-        date: '01/10',
         topic: 'Serviços de redes e monitoramento',
         kind: 'Ensino / Palestrante convidado',
       },
       {
-        n: 10,
-        date: '08/10',
-        topic: 'Serviços de segurança',
-        kind: 'Ensino',
-      },
-      {
-        n: 11,
-        date: '15/10',
+        n: 9,
+        date: '01/10',
         topic: 'Serviços de DevOps e analytics',
         kind: 'Ensino',
       },
       {
-        n: 12,
-        date: '22/10',
+        n: 10,
+        date: '08/10',
         topic: 'Serviços de IA e machine learning',
         kind: 'Ensino / Palestrante convidado',
+      },
+      {
+        n: 11,
+        date: '15/10',
+        topic: 'Atividade hands-on',
+        kind: 'Hands-on',
+      },
+      {
+        n: 12,
+        date: '22/10',
+        topic: 'Atividade hands-on',
+        kind: 'Hands-on',
       },
       {
         n: 13,
