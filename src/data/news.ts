@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: AWS Lambda Web Functions, Amazon S3 on the Vercel Marketplace, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-19',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-lambda-web-functions-amazon-s3-on-the-vercel-marketplace-and-more-october-19-2026/',
+    summary:
+      'O Lambda Web Functions roda apps web comuns (Express, Hono, Fastify, Next.js) sem reescrita, com um único aws lambda-web deploy. O S3 chegou ao Vercel Marketplace com credenciais temporárias via OIDC, e as instâncias EC2 T8i chegaram a São Paulo, com até 30% mais preço-desempenho que a T3 e tamanhos micro e small no Free Tier.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova 2.5 Sonic, and more',
     source: 'AWS News Blog',
     provider: 'aws',
