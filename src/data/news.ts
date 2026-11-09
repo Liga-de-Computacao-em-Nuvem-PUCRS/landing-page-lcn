@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: OpenAI GPT-6 Astra on Amazon Bedrock, Amazon Quick desktop GA, Kiro for students, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-14',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/',
+    summary:
+      'O GPT-6 Astra, modelo mais capaz da OpenAI até agora, chegou ao Bedrock com até 1 milhão de tokens de entrada, o app desktop do Amazon Quick ficou disponível para macOS e Windows, e o programa Kiro para estudantes ganhou 121 novas universidades em 16 países, com um ano de Kiro e 1.000 créditos por mês sem cartão de crédito.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more',
     source: 'AWS News Blog',
     provider: 'aws',
