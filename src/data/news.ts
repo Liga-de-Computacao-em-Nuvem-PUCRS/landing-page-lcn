@@ -6,6 +6,171 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Our newest TPUs: 8tx and 8i Max, built for the agentic era',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-09',
+    url: 'https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max',
+    summary:
+      'Duas novas TPUs de oitava geração: a TPU 8tx, para inferência segura e confidencial com até 2x menos latência que a TPU 8t, e a TPU 8i Max, que une dois chips 8i e dobra a computação, a SRAM e a banda de HBM.',
+  },
+  {
+    title:
+      'Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-07',
+    url: 'https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga',
+    summary:
+      'A série Z4M entrou em GA no Compute Engine, como VM ou bare metal: até 168.000 GiB de Local SSD, 192 vCPUs, 1.536 GiB de memória e 400 Gbps de rede RDMA, voltada a treino e inferência de IA, sistemas de arquivos paralelos e bancos de dados.',
+  },
+  {
+    title: 'Powering open infrastructure for autonomous agents',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-05',
+    url: 'https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf',
+    summary:
+      'O Google doou Agent Substrate, gVisor e OpenRL à CNCF. O Agent Substrate chegou à versão 1.0 e está em GA no GKE, restaurando agentes ociosos em menos de 500 ms; o gVisor isola o código gerado e o OpenRL orquestra pós-treino com RL no Kubernetes.',
+  },
+  {
+    title:
+      'AlloyDB Express: Instant, scale-to-zero PostgreSQL for developers and coding agents',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-04',
+    url: 'https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping',
+    summary:
+      'Preview do AlloyDB Express, PostgreSQL feito para desenvolvedores e agentes de código: banco pronto em menos de dois segundos, pausa automática após 15 minutos sem uso, 50 CUs gratuitas por mês e upgrade em um clique para o AlloyDB de produção.',
+  },
+  {
+    title:
+      'The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources',
+    source: 'Google Cloud Blog (Mandiant)',
+    provider: 'gcp',
+    date: '2026-11-02',
+    url: 'https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models',
+    summary:
+      'A Mandiant descreve incidentes de 2026 em que atacantes sequestraram o acesso corporativo a LLMs, com cobranças fraudulentas acima de US$ 100 mil em um único dia e até US$ 1 milhão acumulado antes de o acesso ser revogado. Um bom lembrete para proteger credenciais e monitorar o consumo de modelos.',
+  },
+  {
+    title:
+      'Designing Azure silicon on Azure silicon: EDA workloads on Cobalt 200',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-11-05',
+    url: 'https://azure.microsoft.com/en-us/blog/designing-azure-silicon-on-azure-silicon-eda-workloads-on-cobalt-200/',
+    summary:
+      'O time de silício da Microsoft passou a projetar chips no próprio Azure Cobalt 200 (Arm Neoverse CSS V3): as cargas de EDA rodaram de 1,30x a 4,15x mais rápido que no Cobalt 100, e a simulação RTL com Xcelium e VCS teve mais de 40% de throughput por núcleo em relação a qualquer outro sistema testado.',
+  },
+  {
+    title: 'Introducing the Microsoft Copilot harness in Foundry Agent Service',
+    source: 'Microsoft Foundry Blog',
+    provider: 'azure',
+    date: '2026-10-28',
+    url: 'https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/',
+    summary:
+      'O Microsoft Copilot harness entrou em preview no Foundry Agent Service: a Microsoft executa o loop do agente e o sandbox, e o time traz conhecimento, procedimentos e ferramentas. A resiliência para agentes hospedados em tarefas longas virou GA e retoma o trabalho após interrupções. A cobrança começa em 1º de dezembro de 2026.',
+  },
+  {
+    title: 'Advancing digital sovereignty with greater control and choice',
+    source: 'Official Microsoft Blog',
+    provider: 'azure',
+    date: '2026-10-20',
+    url: 'https://blogs.microsoft.com/blog/2026/10/20/advancing-digital-sovereignty-with-greater-control-and-choice/',
+    summary:
+      'Nova fase do Microsoft Sovereign Cloud: gerenciamento externo de chaves com o Azure Managed HSM e VMs confidenciais no Azure Local entraram em disponibilidade geral, e o Sovereign Control Panel, que reúne os sinais de soberania no portal do Azure, entra em preview no Microsoft Ignite.',
+  },
+  {
+    title: 'Deep dive into Azure Maia 300 architecture',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-10-12',
+    url: 'https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-maia-300-architecture/',
+    summary:
+      'Por dentro do Maia 300, terceira geração do acelerador da Microsoft para inferência agêntica: oito pilhas de HBM4 com 288 GB e 18 TB/s por chip e racks de 96 aceleradores em 167 kW, com até 7x o throughput de tokens por rack do Maia 200.',
+  },
+  {
+    title:
+      'Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-11-04',
+    url: 'https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/',
+    summary:
+      'Migração gerenciada, por API, de tabelas Hive em Parquet registradas no Glue Data Catalog para Apache Iceberg no S3 Tables, sem pipelines nem computação para provisionar. O serviço cuida da validação, da conversão de tipos e da compactação com a produção rodando, e só o volume de dados copiado é cobrado.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-11-02',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/',
+    summary:
+      'O GPT-6.1 Terra chegou ao Bedrock com tokens pelo menos 50% mais baratos que o GPT-6.1 Sol, workflows do Step Functions viraram ferramentas de agentes pelo AgentCore Gateway (via MCP) e o AWS KMS passou a suportar ML-KEM, o encapsulamento de chaves pós-quântico do padrão NIST FIPS 203.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-26',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/',
+    summary:
+      'O AWS Continuum, que testa vulnerabilidades exploráveis em sandbox e propõe a correção em pull request, entrou em disponibilidade geral. O novo Amazon ECS Gateway deixa até 25 serviços dividirem um único ALB, e o motor generativo do Amazon Polly chegou a 57 vozes em 11 idiomas, com duas novas vozes em português do Brasil.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: AWS Lambda Web Functions, Amazon S3 on the Vercel Marketplace, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-19',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-lambda-web-functions-amazon-s3-on-the-vercel-marketplace-and-more-october-19-2026/',
+    summary:
+      'O Lambda Web Functions roda apps web comuns (Express, Hono, Fastify, Next.js) sem reescrita, com um único aws lambda-web deploy. O S3 chegou ao Vercel Marketplace com credenciais temporárias via OIDC, e as instâncias EC2 T8i chegaram a São Paulo, com até 30% mais preço-desempenho que a T3 e tamanhos micro e small no Free Tier.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova 2.5 Sonic, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-13',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-prime-day-2026-by-the-numbers-claude-haiku-5-5-amazon-nova-2-5-sonic-and-more-october-13-2026/',
+    summary:
+      'No Prime Day 2026 o DynamoDB atendeu mais de 59 trilhões de requisições e o Lambda passou de 2,3 trilhões de invocações por dia, depois de mais de 44 mil experimentos de Fault Injection Service. O Claude Haiku 5.5 chegou ao Bedrock custando cerca de 75% menos que o Haiku 4.5, e o Nova 2.5 Sonic trouxe voz em tempo real com contexto de 256K.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Strands harness, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-28',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/',
+    summary:
+      'Além do Claude Opus 5.5 e dos GPT-6 Sol e Luna no Bedrock, a semana trouxe o Amazon CloudWatch Omni (aplicações e agentes de IA observados num só workspace com OpenTelemetry), barramentos do EventBridge compartilháveis entre contas via AWS RAM e o Inference Gateway do SageMaker HyperPod, com até 82% menos latência no primeiro token.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-21',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/',
+    summary:
+      'O AWS Builder Center ganhou apps para iOS e Android, com login pelo AWS Builder ID, artigos e workshops com sandbox gratuito. O Amazon Connect Talent entrou em disponibilidade geral para entrevistas estruturadas com agentes de IA, e o Amazon Corretto 27 saiu com o G1 como coletor de lixo padrão.',
+  },
+  {
+    title:
+      'AWS Weekly Roundup: OpenAI GPT-6 Astra on Amazon Bedrock, Amazon Quick desktop GA, Kiro for students, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-14',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/',
+    summary:
+      'O GPT-6 Astra, modelo mais capaz da OpenAI até agora, chegou ao Bedrock com até 1 milhão de tokens de entrada, o app desktop do Amazon Quick ficou disponível para macOS e Windows, e o programa Kiro para estudantes ganhou 121 novas universidades em 16 países, com um ano de Kiro e 1.000 créditos por mês sem cartão de crédito.',
+  },
+  {
     title:
       'AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Daybreak on Bedrock, and more',
     source: 'AWS News Blog',
