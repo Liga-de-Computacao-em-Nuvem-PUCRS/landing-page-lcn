@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Strands harness, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-28',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/',
+    summary:
+      'Além do Claude Opus 5.5 e dos GPT-6 Sol e Luna no Bedrock, a semana trouxe o Amazon CloudWatch Omni (aplicações e agentes de IA observados num só workspace com OpenTelemetry), barramentos do EventBridge compartilháveis entre contas via AWS RAM e o Inference Gateway do SageMaker HyperPod, com até 82% menos latência no primeiro token.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more',
     source: 'AWS News Blog',
     provider: 'aws',
