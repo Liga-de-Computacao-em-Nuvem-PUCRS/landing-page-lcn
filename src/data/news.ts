@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova 2.5 Sonic, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-13',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-prime-day-2026-by-the-numbers-claude-haiku-5-5-amazon-nova-2-5-sonic-and-more-october-13-2026/',
+    summary:
+      'No Prime Day 2026 o DynamoDB atendeu mais de 59 trilhões de requisições e o Lambda passou de 2,3 trilhões de invocações por dia, depois de mais de 44 mil experimentos de Fault Injection Service. O Claude Haiku 5.5 chegou ao Bedrock custando cerca de 75% menos que o Haiku 4.5, e o Nova 2.5 Sonic trouxe voz em tempo real com contexto de 256K.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Strands harness, and more',
     source: 'AWS News Blog',
     provider: 'aws',
