@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Amazon Corretto 27, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-09-21',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/',
+    summary:
+      'O AWS Builder Center ganhou apps para iOS e Android, com login pelo AWS Builder ID, artigos e workshops com sandbox gratuito. O Amazon Connect Talent entrou em disponibilidade geral para entrevistas estruturadas com agentes de IA, e o Amazon Corretto 27 saiu com o G1 como coletor de lixo padrão.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: OpenAI GPT-6 Astra on Amazon Bedrock, Amazon Quick desktop GA, Kiro for students, and more',
     source: 'AWS News Blog',
     provider: 'aws',
