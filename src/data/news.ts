@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-11-02',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-1-terra-on-bedrock-step-functions-as-agent-tools-and-more-november-2-2026/',
+    summary:
+      'O GPT-6.1 Terra chegou ao Bedrock com tokens pelo menos 50% mais baratos que o GPT-6.1 Sol, workflows do Step Functions viraram ferramentas de agentes pelo AgentCore Gateway (via MCP) e o AWS KMS passou a suportar ML-KEM, o encapsulamento de chaves pós-quântico do padrão NIST FIPS 203.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more',
     source: 'AWS News Blog',
     provider: 'aws',
