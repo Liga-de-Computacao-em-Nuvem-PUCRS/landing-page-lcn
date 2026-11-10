@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-11-04',
+    url: 'https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/',
+    summary:
+      'Migração gerenciada, por API, de tabelas Hive em Parquet registradas no Glue Data Catalog para Apache Iceberg no S3 Tables, sem pipelines nem computação para provisionar. O serviço cuida da validação, da conversão de tipos e da compactação com a produção rodando, e só o volume de dados copiado é cobrado.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and more',
     source: 'AWS News Blog',
     provider: 'aws',
