@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more',
+    source: 'AWS News Blog',
+    provider: 'aws',
+    date: '2026-10-26',
+    url: 'https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/',
+    summary:
+      'O AWS Continuum, que testa vulnerabilidades exploráveis em sandbox e propõe a correção em pull request, entrou em disponibilidade geral. O novo Amazon ECS Gateway deixa até 25 serviços dividirem um único ALB, e o motor generativo do Amazon Polly chegou a 57 vozes em 11 idiomas, com duas novas vozes em português do Brasil.',
+  },
+  {
+    title:
       'AWS Weekly Roundup: AWS Lambda Web Functions, Amazon S3 on the Vercel Marketplace, and more',
     source: 'AWS News Blog',
     provider: 'aws',
