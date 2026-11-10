@@ -6,6 +6,15 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Advancing digital sovereignty with greater control and choice',
+    source: 'Official Microsoft Blog',
+    provider: 'azure',
+    date: '2026-10-20',
+    url: 'https://blogs.microsoft.com/blog/2026/10/20/advancing-digital-sovereignty-with-greater-control-and-choice/',
+    summary:
+      'Nova fase do Microsoft Sovereign Cloud: gerenciamento externo de chaves com o Azure Managed HSM e VMs confidenciais no Azure Local entraram em disponibilidade geral, e o Sovereign Control Panel, que reúne os sinais de soberania no portal do Azure, entra em preview no Microsoft Ignite.',
+  },
+  {
     title: 'Deep dive into Azure Maia 300 architecture',
     source: 'Microsoft Azure Blog',
     provider: 'azure',
