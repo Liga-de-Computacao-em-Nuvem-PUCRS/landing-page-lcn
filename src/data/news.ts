@@ -6,6 +6,15 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Deep dive into Azure Maia 300 architecture',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-10-12',
+    url: 'https://azure.microsoft.com/en-us/blog/deep-dive-into-azure-maia-300-architecture/',
+    summary:
+      'Por dentro do Maia 300, terceira geração do acelerador da Microsoft para inferência agêntica: oito pilhas de HBM4 com 288 GB e 18 TB/s por chip e racks de 96 aceleradores em 167 kW, com até 7x o throughput de tokens por rack do Maia 200.',
+  },
+  {
     title:
       'Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg',
     source: 'AWS News Blog',
