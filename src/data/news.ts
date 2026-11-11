@@ -6,6 +6,15 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Introducing the Microsoft Copilot harness in Foundry Agent Service',
+    source: 'Microsoft Foundry Blog',
+    provider: 'azure',
+    date: '2026-10-28',
+    url: 'https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/',
+    summary:
+      'O Microsoft Copilot harness entrou em preview no Foundry Agent Service: a Microsoft executa o loop do agente e o sandbox, e o time traz conhecimento, procedimentos e ferramentas. A resiliência para agentes hospedados em tarefas longas virou GA e retoma o trabalho após interrupções. A cobrança começa em 1º de dezembro de 2026.',
+  },
+  {
     title: 'Advancing digital sovereignty with greater control and choice',
     source: 'Official Microsoft Blog',
     provider: 'azure',
