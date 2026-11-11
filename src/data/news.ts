@@ -6,6 +6,25 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Our newest TPUs: 8tx and 8i Max, built for the agentic era',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-09',
+    url: 'https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max',
+    summary:
+      'Duas novas TPUs de oitava geração: a TPU 8tx, para inferência segura e confidencial com até 2x menos latência que a TPU 8t, e a TPU 8i Max, que une dois chips 8i e dobra a computação, a SRAM e a banda de HBM.',
+  },
+  {
+    title:
+      'Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-07',
+    url: 'https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga',
+    summary:
+      'A série Z4M entrou em GA no Compute Engine, como VM ou bare metal: até 168.000 GiB de Local SSD, 192 vCPUs, 1.536 GiB de memória e 400 Gbps de rede RDMA, voltada a treino e inferência de IA, sistemas de arquivos paralelos e bancos de dados.',
+  },
+  {
     title: 'Powering open infrastructure for autonomous agents',
     source: 'Google Cloud Blog',
     provider: 'gcp',
