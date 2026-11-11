@@ -6,6 +6,15 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title: 'Powering open infrastructure for autonomous agents',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-05',
+    url: 'https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf',
+    summary:
+      'O Google doou Agent Substrate, gVisor e OpenRL à CNCF. O Agent Substrate chegou à versão 1.0 e está em GA no GKE, restaurando agentes ociosos em menos de 500 ms; o gVisor isola o código gerado e o OpenRL orquestra pós-treino com RL no Kubernetes.',
+  },
+  {
     title:
       'AlloyDB Express: Instant, scale-to-zero PostgreSQL for developers and coding agents',
     source: 'Google Cloud Blog',
