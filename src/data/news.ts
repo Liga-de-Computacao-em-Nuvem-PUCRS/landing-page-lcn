@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'AlloyDB Express: Instant, scale-to-zero PostgreSQL for developers and coding agents',
+    source: 'Google Cloud Blog',
+    provider: 'gcp',
+    date: '2026-11-04',
+    url: 'https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping',
+    summary:
+      'Preview do AlloyDB Express, PostgreSQL feito para desenvolvedores e agentes de código: banco pronto em menos de dois segundos, pausa automática após 15 minutos sem uso, 50 CUs gratuitas por mês e upgrade em um clique para o AlloyDB de produção.',
+  },
+  {
+    title:
       'The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources',
     source: 'Google Cloud Blog (Mandiant)',
     provider: 'gcp',
