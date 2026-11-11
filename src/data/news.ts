@@ -6,6 +6,16 @@ import type { NewsItem } from '@/types/news.types';
  */
 export const NEWS: NewsItem[] = [
   {
+    title:
+      'Designing Azure silicon on Azure silicon: EDA workloads on Cobalt 200',
+    source: 'Microsoft Azure Blog',
+    provider: 'azure',
+    date: '2026-11-05',
+    url: 'https://azure.microsoft.com/en-us/blog/designing-azure-silicon-on-azure-silicon-eda-workloads-on-cobalt-200/',
+    summary:
+      'O time de silício da Microsoft passou a projetar chips no próprio Azure Cobalt 200 (Arm Neoverse CSS V3): as cargas de EDA rodaram de 1,30x a 4,15x mais rápido que no Cobalt 100, e a simulação RTL com Xcelium e VCS teve mais de 40% de throughput por núcleo em relação a qualquer outro sistema testado.',
+  },
+  {
     title: 'Introducing the Microsoft Copilot harness in Foundry Agent Service',
     source: 'Microsoft Foundry Blog',
     provider: 'azure',
