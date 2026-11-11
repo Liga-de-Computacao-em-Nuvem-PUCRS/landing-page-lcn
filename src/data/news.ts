@@ -7,6 +7,16 @@ import type { NewsItem } from '@/types/news.types';
 export const NEWS: NewsItem[] = [
   {
     title:
+      'The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources',
+    source: 'Google Cloud Blog (Mandiant)',
+    provider: 'gcp',
+    date: '2026-11-02',
+    url: 'https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models',
+    summary:
+      'A Mandiant descreve incidentes de 2026 em que atacantes sequestraram o acesso corporativo a LLMs, com cobranças fraudulentas acima de US$ 100 mil em um único dia e até US$ 1 milhão acumulado antes de o acesso ser revogado. Um bom lembrete para proteger credenciais e monitorar o consumo de modelos.',
+  },
+  {
+    title:
       'Designing Azure silicon on Azure silicon: EDA workloads on Cobalt 200',
     source: 'Microsoft Azure Blog',
     provider: 'azure',
