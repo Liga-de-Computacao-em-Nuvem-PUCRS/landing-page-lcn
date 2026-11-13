@@ -113,8 +113,8 @@ export const CYCLES: Cycle[] = [
   {
     key: 'c3',
     index: 3,
-    title: 'Case com Cliente',
-    highlight: 'Cliente',
+    title: 'Simulados CLF-C02',
+    highlight: 'Simulados',
     period: 'Novembro e dezembro · 05/11 a 03/12',
     accent: 'amber',
     focus:
