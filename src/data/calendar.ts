@@ -115,7 +115,7 @@ export const CYCLES: Cycle[] = [
     index: 3,
     title: 'Simulados CLF-C02',
     highlight: 'Simulados',
-    period: 'Novembro e dezembro · 05/11 a 03/12',
+    period: 'Novembro · 05/11 a 26/11',
     accent: 'amber',
     focus:
       'Squad em projeto real com cliente externo: do briefing ao diagrama de arquitetura, teste em ambiente real e apresentação final.',
