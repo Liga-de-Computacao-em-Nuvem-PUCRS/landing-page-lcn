@@ -118,8 +118,8 @@ export const CYCLES: Cycle[] = [
     period: 'Novembro · 05/11 a 26/11',
     accent: 'amber',
     focus:
-      'Squad em projeto real com cliente externo: do briefing ao diagrama de arquitetura, teste em ambiente real e apresentação final.',
-    format: 'Stakeholder e Case Real',
+      'Reta final para a certificação: simulados no formato do exame Cloud Practitioner (CLF-C02), correção comentada e encerramento do semestre.',
+    format: 'Simulados comentados',
     meetings: [
       {
         n: 14,
