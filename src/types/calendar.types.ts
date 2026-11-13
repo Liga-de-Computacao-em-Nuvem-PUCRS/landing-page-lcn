@@ -1,7 +1,7 @@
 export type CycleKey = 'c1' | 'c2' | 'c3';
 
 export interface Meeting {
-  /** número do encontro (1–18) */
+  /** número do encontro (1–17) */
   n: number;
   /** data no formato DD/MM */
   date: string;

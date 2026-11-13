@@ -1,7 +1,7 @@
 import type { Cycle } from '@/types/calendar.types';
 
 /**
- * Programa-piloto 2026/2 — encontros às quintas-feiras, 06/08 → 03/12, 18 encontros.
+ * Programa-piloto 2026/2 — encontros às quintas-feiras, 06/08 → 26/11, 17 encontros.
  * Fonte: planilha "Cronograma de Ciclos — LCN".
  */
 export const CYCLES: Cycle[] = [
@@ -113,43 +113,38 @@ export const CYCLES: Cycle[] = [
   {
     key: 'c3',
     index: 3,
-    title: 'Case com Cliente',
-    highlight: 'Cliente',
-    period: 'Novembro e dezembro · 05/11 a 03/12',
+    title: 'Simulados CLF-C02',
+    highlight: 'Simulados',
+    period: 'Novembro · 05/11 a 26/11',
     accent: 'amber',
     focus:
-      'Squad em projeto real com cliente externo: do briefing ao diagrama de arquitetura, teste em ambiente real e apresentação final.',
-    format: 'Stakeholder e Case Real',
+      'Reta final para a certificação: simulados no formato do exame Cloud Practitioner (CLF-C02), correção comentada e encerramento do semestre.',
+    format: 'Simulados comentados',
     meetings: [
       {
         n: 14,
         date: '05/11',
-        topic: 'Apresentação do case com cliente (contexto, requisitos, restrições)',
-        kind: 'Extensão',
+        topic: 'Simulado 1: Conceitos de Nuvem e Segurança e Conformidade',
+        kind: 'Prática',
       },
       {
         n: 15,
         date: '12/11',
-        topic: 'Idealização e início do diagrama de arquitetura',
+        topic: 'Simulado 2: Tecnologia e Serviços de Nuvem',
         kind: 'Prática',
       },
       {
         n: 16,
         date: '19/11',
-        topic: 'Diagrama de arquitetura — finalização e validação',
+        topic: 'Simulado 3: prova completa com correção comentada',
         kind: 'Prática',
       },
       {
         n: 17,
         date: '26/11',
-        topic: 'Teste em ambiente real',
-        kind: 'Prática',
-      },
-      {
-        n: 18,
-        date: '03/12',
-        topic: 'Apresentação final da solução + encerramento do semestre',
-        kind: 'Extensão / Projeto',
+        topic:
+          'Encerramento do semestre: próximos passos no ecossistema Cloud e AWS e roda de conversa sobre a CLF-C02',
+        kind: 'Comunidade',
       },
     ],
   },
