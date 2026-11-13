@@ -130,7 +130,7 @@ export const CYCLES: Cycle[] = [
       {
         n: 15,
         date: '12/11',
-        topic: 'Idealização e início do diagrama de arquitetura',
+        topic: 'Simulado 2: Tecnologia e Serviços de Nuvem',
         kind: 'Prática',
       },
       {
