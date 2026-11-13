@@ -124,8 +124,8 @@ export const CYCLES: Cycle[] = [
       {
         n: 14,
         date: '05/11',
-        topic: 'Apresentação do case com cliente (contexto, requisitos, restrições)',
-        kind: 'Extensão',
+        topic: 'Simulado 1: Conceitos de Nuvem e Segurança e Conformidade',
+        kind: 'Prática',
       },
       {
         n: 15,
