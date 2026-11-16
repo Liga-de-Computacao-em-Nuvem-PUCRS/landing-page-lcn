@@ -14,7 +14,7 @@ export default function CalendarioPage() {
         <div className="flex flex-wrap gap-2">
           {[
             'Quintas-feiras',
-            '18 encontros',
+            '17 encontros',
             'Formato híbrido',
             'PUCRS · Escola Politécnica',
           ].map((t) => (
