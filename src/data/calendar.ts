@@ -136,7 +136,7 @@ export const CYCLES: Cycle[] = [
       {
         n: 16,
         date: '19/11',
-        topic: 'Diagrama de arquitetura — finalização e validação',
+        topic: 'Simulado 3: prova completa com correção comentada',
         kind: 'Prática',
       },
       {
