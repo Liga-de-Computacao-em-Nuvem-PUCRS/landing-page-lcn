@@ -142,14 +142,9 @@ export const CYCLES: Cycle[] = [
       {
         n: 17,
         date: '26/11',
-        topic: 'Teste em ambiente real',
-        kind: 'Prática',
-      },
-      {
-        n: 18,
-        date: '03/12',
-        topic: 'Apresentação final da solução + encerramento do semestre',
-        kind: 'Extensão / Projeto',
+        topic:
+          'Encerramento do semestre: próximos passos no ecossistema Cloud e AWS e roda de conversa sobre a CLF-C02',
+        kind: 'Comunidade',
       },
     ],
   },
