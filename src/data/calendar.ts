@@ -1,7 +1,7 @@
 import type { Cycle } from '@/types/calendar.types';
 
 /**
- * Programa-piloto 2026/2 — encontros às quintas-feiras, 06/08 → 03/12, 18 encontros.
+ * Programa-piloto 2026/2 — encontros às quintas-feiras, 06/08 → 26/11, 17 encontros.
  * Fonte: planilha "Cronograma de Ciclos — LCN".
  */
 export const CYCLES: Cycle[] = [
